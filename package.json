@@ -1,0 +1,46 @@
+{
+  "name": "emagrecentro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "deploy": "yarn build && yarn export"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-styled-components": "^1.10.6",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "prettier-eslint": "^9.0.0"
+  },
+  "dependencies": {
+    "@u-wave/react-vimeo": "^0.8.1",
+    "@u-wave/react-youtube": "^0.7.2",
+    "babel-plugin-add-react-displayname": "0.0.5",
+    "date-fns": "^2.0.0",
+    "dotenv": "^8.1.0",
+    "dotenv-webpack": "^1.7.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "^9.0.3",
+    "prop-types": "^15.7.2",
+    "pure-react-carousel": "^1.27.6",
+    "query-string": "^6.8.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-gtm-module": "^2.0.8",
+    "react-scroll": "^1.7.14",
+    "react-text-mask": "^5.4.3",
+    "react-youtube": "^7.13.1",
+    "serverless-mysql": "^1.5.0",
+    "sql-template-strings": "^2.2.2",
+    "styled-components": "^4.3.2"
+  }
+}

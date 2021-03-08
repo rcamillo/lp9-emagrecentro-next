@@ -1,0 +1,175 @@
+import styled from "styled-components";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import Head from "next/head";
+import { Element, scroller } from "react-scroll";
+
+import PaginaInterna from "../components/paginas/PaginaInterna";
+import FormularioHome from "../components/formulario/FormularioHome";
+
+import Faixa1 from "../components/conteudo/Faixa1";
+// import Faixa2 from "../components/conteudo/Faixa2";
+// import Faixa3 from "../components/conteudo/Faixa3";
+// import Faixa4 from "../components/conteudo/Faixa4";
+// import Faixa5 from "../components/conteudo/Faixa5";
+// import Faixa6 from "../components/conteudo/Faixa6";
+// import Faixa7 from "../components/conteudo/Faixa7";
+// import Faixa8 from "../components/conteudo/Faixa8";
+import Footer from "../components/layout/Footer";
+
+const MascaraCallForm = styled.div`
+  display: ${props => (props.ativo ? "block" : "none")};
+  position: fixed;
+  z-index: 10;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: ${props => (props.ativo ? "rgba(0,0,0,0.5)" : "inherit")};
+
+  top: 0;
+  right: 0;
+
+  transition: all 0.3s;
+`;
+
+const FormWrapper = styled.div`
+  position: ${props => (props.FormAltura ? "fixed" : "absolute")};
+  top: ${props => (props.FormAltura ? "6rem" : "15rem")};
+  right: 10rem;
+  z-index: 25;
+
+  @media (max-width: 1200px) {
+    right: 3rem;
+  }
+
+  @media (max-width: 1045px) {
+    right: 1rem;
+  }
+
+  @media (max-width: 900px) {
+    position: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    margin-bottom: 5rem;
+  }
+`;
+
+const Home = () => {
+  const router = useRouter();
+
+  const [destaqueForm, setDestaqueForm] = useState(false);
+
+  const [FormFixo, setFormFixo] = useState(false);
+
+  function callForm() {
+    if (window.innerWidth > 900) {
+      scroller.scrollTo("form", {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart"
+      });
+
+      setDestaqueForm(true);
+      setTimeout(() => {
+        setDestaqueForm(false);
+      }, 5000);
+    } else {
+      scroller.scrollTo("form", {
+        duration: 800,
+        delay: 0,
+        smooth: "easeInOutQuart"
+      });
+    }
+  }
+
+  useEffect(() => {
+    async function buscaSession() {
+      const session = await JSON.parse(
+        await localStorage.getItem("@totalclean/session-lead")
+      );
+      const hoje = new Date();
+
+      if (session) {
+        if (session.lead_expire >= JSON.stringify(hoje)) {
+          router.push("/sucesso");
+        }
+      }
+      localStorage.removeItem("@totalclean/session-lead");
+    }
+
+    buscaSession();
+  }, ["umavez"]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (
+        window.innerWidth > 900 &&
+        (document.body.scrollTop > 60 ||
+          document.documentElement.scrollTop > 60)
+      ) {
+        setFormFixo(true);
+      } else {
+        setFormFixo(false);
+      }
+    });
+  }, ["once"]);
+
+  return (
+    <div>
+      <MascaraCallForm ativo={destaqueForm} />
+      <Head>
+        <title>
+          Fature vulcanizando pneus | PLC MÁQUINAS Silvio Pelicer
+        </title>
+        <meta
+          name="description"
+          content="Fature mais de 10 mil por mês com as máquinas vulcanizadoras PLC. Conserte pneus agrícolas, de carga e OTR. Compare os custos. Orçamento via WhatsApp."
+        />
+        <meta
+          name="keywords"
+          content="plc maquinas vulcanizadoras, silvio pelicer, pneus agricolas, pneus de carga, pneus otr, conserto de pneus caminhao, pneus trator, vulcanizar pneu preço, vulcanizaçao de pneus, custo conserto pneu, maquina de vulcanizar pneus, pneus para maquinas, pneu vulcanizado,  maquina p1 vulcanizar pneu, descolador de pneu agricola, descolar de pneu caminhao"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="rating" content="general" />
+
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://lp9plcmaquinas.netlify.app/static/img/og.jpg"
+        />
+        <meta
+          property="og:title"
+          content="Fature vulcanizando pneus | PLC MÁQUINAS Silvio Pelicer"
+        />
+        <meta
+          property="og:description"
+          content="Fature mais de 10 mil por mês com as máquinas vulcanizadoras PLC. Conserte pneus agrícolas, de carga e OTR. Compare os custos. Orçamento via WhatsApp."
+        />
+        <meta property="og:url" content="https://lp9plcmaquinas.netlify.app/" />
+      </Head>
+      <PaginaInterna>
+        <Faixa1 callForm={callForm} />
+        {/* <Faixa2 callForm={callForm} />
+        <Element name="form">
+          <FormWrapper FormAltura={FormFixo}>
+            <FormularioHome />
+          </FormWrapper>
+        </Element>
+        <Faixa3 callForm={callForm} />
+        <Faixa4 callForm={callForm} />
+        <Faixa5 callForm={callForm} />
+        <Faixa6 callForm={callForm}/>
+        <Faixa7 callForm={callForm} />
+        <Faixa8 callForm={callForm} /> */}
+        <Footer callForm={callForm} />
+      </PaginaInterna>
+    </div>
+  );
+};
+
+export default Home;
