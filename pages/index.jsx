@@ -6,9 +6,10 @@ import { Element, scroller } from "react-scroll";
 
 import PaginaInterna from "../components/paginas/PaginaInterna";
 import FormularioHome from "../components/formulario/FormularioHome";
+import FormularioHomeTopo from "../components/formulario/FormularioHomeTopo";
 
 import Faixa1 from "../components/conteudo/Faixa1";
-// import Faixa2 from "../components/conteudo/Faixa2";
+import Faixa2 from "../components/conteudo/Faixa2";
 // import Faixa3 from "../components/conteudo/Faixa3";
 // import Faixa4 from "../components/conteudo/Faixa4";
 // import Faixa5 from "../components/conteudo/Faixa5";
@@ -33,10 +34,17 @@ const MascaraCallForm = styled.div`
   transition: all 0.3s;
 `;
 
+const FormWrapperHorizontal = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  z-index: 25;
+  margin-top: -45rem;
+`;
 const FormWrapper = styled.div`
-  position: ${props => (props.FormAltura ? "fixed" : "absolute")};
-  top: ${props => (props.FormAltura ? "6rem" : "15rem")};
-  right: 10rem;
+  position: relative;
   z-index: 25;
 
   @media (max-width: 1200px) {
@@ -57,6 +65,12 @@ const FormWrapper = styled.div`
 
     margin-bottom: 5rem;
   }
+`;
+
+const ContentPersonagemForm = styled.div``;
+const PersonagemForm = styled.img`
+  height: 33rem;
+  margin-bottom: -1rem;
 `;
 
 const Home = () => {
@@ -90,7 +104,7 @@ const Home = () => {
   useEffect(() => {
     async function buscaSession() {
       const session = await JSON.parse(
-        await localStorage.getItem("@totalclean/session-lead")
+        localStorage.getItem("@emagrecentro/session-lead")
       );
       const hoje = new Date();
 
@@ -99,7 +113,7 @@ const Home = () => {
           router.push("/sucesso");
         }
       }
-      localStorage.removeItem("@totalclean/session-lead");
+      localStorage.removeItem("@emagrecentro/session-lead");
     }
 
     buscaSession();
@@ -154,19 +168,33 @@ const Home = () => {
       </Head>
       <PaginaInterna>
         <Faixa1 callForm={callForm} />
-        {/* <Faixa2 callForm={callForm} />
-        <Element name="form">
+        <Element name="formHorizontal">
+          <FormWrapperHorizontal>
+            <ContentPersonagemForm>
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/static/img/faixa1/personagem-form.webp"
+                />
+                <PersonagemForm src="/static/img/faixa1/personagem-form.png" alt="Emagrecentro" />
+              </picture>
+            </ContentPersonagemForm>
+            <FormularioHomeTopo />
+          </FormWrapperHorizontal>
+        </Element>
+        <Faixa2 callForm={callForm} />
+        {/* <Element name="form">
           <FormWrapper FormAltura={FormFixo}>
             <FormularioHome />
           </FormWrapper>
-        </Element>
-        <Faixa3 callForm={callForm} />
+        </Element> */}
+        {/* <Faixa3 callForm={callForm} />
         <Faixa4 callForm={callForm} />
         <Faixa5 callForm={callForm} />
         <Faixa6 callForm={callForm}/>
         <Faixa7 callForm={callForm} />
-        <Faixa8 callForm={callForm} /> */}
-        <Footer callForm={callForm} />
+        <Faixa8 callForm={callForm} />
+        <Footer callForm={callForm} /> */}
       </PaginaInterna>
     </div>
   );

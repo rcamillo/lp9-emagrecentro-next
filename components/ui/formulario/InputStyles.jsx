@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const InputGroup = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   .select-input {
     width: 90%;
     border: none;
-    border-radius: 10px;
     background-color: #fff;
     height: 4.5rem;
     padding-left: 1rem;
@@ -16,10 +15,10 @@ export const InputGroup = styled.div`
     }
 
     &--cinza {
-      width: 90%;
+      width: 100%;
       background-color: ${props =>
         props.theme.client.colors.moreLessLighterGrey};
-      border: 0.5px solid ${props => props.theme.colors.lightGrey};
+      border-bottom: 0.5px solid ${props => props.theme.colors.lightGrey};
       @media (max-width: 410px) {
         width: 100%;
       }

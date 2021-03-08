@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
     font-family: 'Prompt', sans-serif;
     color: ${props => props.theme.client.colors.cinza};
-    background-color: #f8f5ec;
+    background-color: #fff;
   }
   a {
     text-decoration: none;

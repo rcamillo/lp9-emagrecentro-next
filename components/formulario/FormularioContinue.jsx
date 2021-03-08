@@ -103,7 +103,7 @@ export default function FormularioContinue() {
       });
 
       localStorage.setItem(
-        "@totalclean/session-lead",
+        "@emagrecentro/session-lead",
         JSON.stringify({ ...session, lead_sucesso: true })
       );
 
@@ -121,7 +121,7 @@ export default function FormularioContinue() {
   useEffect(() => {
     async function buscaSession() {
       const storageSession = await JSON.parse(
-        localStorage.getItem("@totalclean/session-lead")
+        localStorage.getItem("@emagrecentro/session-lead")
       );
 
       if (!storageSession) {

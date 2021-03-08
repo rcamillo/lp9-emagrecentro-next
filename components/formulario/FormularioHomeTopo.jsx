@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-underscore-dangle */
 import styled from "styled-components";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -7,15 +5,24 @@ import queryString from "query-string";
 
 import Status from "./Status";
 import Loader from "./Loader";
+import Select from "./Select";
 import Input from "./Input";
 import InputMasked from "./InputMasked";
 import {
-  Form,
+  FormTopo,
+  FormHeaderHorizontal,
   FormButton,
   FormFooter,
+  FormInputsMenor,
   StatusWrapper,
+  FormRowHorizontal,
+  FormRowHorizontal2Campos,
+  FormConteudo,
+  FormRowHorizontalCidade,
   FormSeguranca
-} from "../ui/formulario/FormStyles";
+} from "../ui/formulario/FormStylesHorizontal";
+
+import { capitais, estados} from "../../helpers/dados";
 
 import {
   validacao,
@@ -24,91 +31,21 @@ import {
   validaTelefone
 } from "../../helpers/formulario";
 
-import { Title, IconWrapper, IconZap } from "../conteudo/Faixa1";
-
-const FormWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-
-  @media (max-width: 900px) {
-    justify-content: center;
-  }
-`;
-
-const FormFixo = styled(Form)`
-  width: 60rem;
-  border-radius: 0;
-  background-color: transparent;
-  box-shadow: none;
-  padding: 0;
-
-  justify-content: center;
-
-  @media (max-width: 1070px) {
-    width: 400px;
-  }
-  @media (max-width: 600px) {
-    max-width: 400px;
-    width: 100%;
-  }
-`;
-
-const FormFooterFixo = styled.div`
+export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 3rem;
-  position: relative;
 `;
 
-const FormInputsFixo = styled.div`
-  margin: 2rem 0;
-
-  input,
-  select,
-  textarea {
-    margin: 0.5rem 0;
-    height: 5rem !important;
-    padding: 5px 15px !important;
-  }
-`;
-
-const InputFixo = styled(Input)`
-  justify-content: flex-start;
-  margin-bottom: 1.5rem;
-`;
-
-const InputMaskedFixo = styled(InputMasked)`
-  justify-content: flex-start;
-  margin-bottom: 1.5rem;
-`;
-
-const TitleFixo = styled(Title)`
-  font-weight: 500;
-  color: ${props => props.theme.client.colors.branco};
-
-  span {
-    font-size: 1.8rem;
-  }
-`;
-
-const FormFixoButton = styled(FormButton)`
-  border-radius: 0;
-  padding: 2rem 4rem;
-  font-size: 1.4rem;
-  height: 6rem;
-  width: 90%;
-`;
-
-export default function FormularioFixo() {
+export default function FormularioHomeTopo() {
   const router = useRouter();
 
   const [lead, setLead] = useState({
     nome: "",
-    celular: ""
-    // email: "",
-    // estado: "",
-    // cidade: "",
+    celular: "",
+    email: "",
+    estado: "",
+    cidade: "",
+    capital: "",
   });
 
   const [cidades, setCidades] = useState([]);
@@ -127,12 +64,12 @@ export default function FormularioFixo() {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    const validou = validacao(lead);
 
     const validouNome = validaNomeCompleto(lead.nome);
     const validouCelular = validaTelefone(lead.celular);
-    // const validouEmail = validaEmail(lead.email);
 
-    if (!validouNome || !validouCelular) {
+    if (!validou || !validouNome || !validouCelular) {
       setControleForm({
         ...controleForm,
         valido: false
@@ -159,9 +96,9 @@ export default function FormularioFixo() {
           campaign_id: process.env.CAMPAIGN_ID,
           nome: lead.nome,
           celular: lead.celular,
-          email: lead.nome,
-          // uf: lead.estado,
-          // cidade: lead.cidade,
+          email: lead.email,
+          uf: lead.estado,
+          cidade: lead.cidade,
           referrer: document.referrer,
           ...queryParams
         })
@@ -179,10 +116,10 @@ export default function FormularioFixo() {
       const dados = {
         lead_body: {
           nome: lead.nome,
-          celular: lead.celular
-          // email: lead.email,
-          // uf: lead.uf,
-          // cidade: lead.cidade
+          celular: lead.celular,
+          email: lead.email,
+          uf: lead.uf,
+          cidade: lead.cidade
         },
         lead_id: data._id,
         lead_expire: hoje
@@ -238,28 +175,38 @@ export default function FormularioFixo() {
         </StatusWrapper>
       )}
       {!controleForm.enviando && !controleForm.erro && !controleForm.sucesso && (
-        <>
-          <FormWrapper>
-            <FormFixo onSubmit={handleSubmit}>
-              <TitleFixo>
-                <strong>SOLICITE UM ORÇAMENTO PELO WHATSAPP!</strong>
-                <br />{" "}
-                <span>
-                  É só preencher o formulário e chamar no WhatsApp agora mesmo!
-                </span>
-              </TitleFixo>
-              <FormInputsFixo>
-                <InputFixo
-                  nome="nome"
-                  placeholder="Nome Completo"
+        <FormTopo onSubmit={handleSubmit}>
+          <FormConteudo>
+            <FormHeaderHorizontal>
+              <p>Baixe nossa apresentação!</p>
+              <span>
+                Preencha o formulário abaixo e receba nossa apresentação completa.
+              </span>
+            </FormHeaderHorizontal>
+            <FormInputsMenor>
+              <FormRowHorizontal>
+              <Input
+                nome="nome"
+                placeholder="Nome Completo"
+                handleInput={handleInput}
+                valor={lead.nome}
+                valido={controleForm.valido}
+                className="select-input--cinza"
+                tipo="text"
+                custom={lead.nome ? validaNomeCompleto(lead.nome) : true}
+                />
+              </FormRowHorizontal>
+              <FormRowHorizontal2Campos>
+                <Input
+                  nome="email"
+                  placeholder="E-mail"
                   handleInput={handleInput}
-                  valor={lead.nome}
+                  valor={lead.email}
                   valido={controleForm.valido}
                   className="select-input--cinza"
-                  tipo="text"
-                  custom={lead.nome ? validaNomeCompleto(lead.nome) : true}
+                  tipo="email"
                 />
-                <InputMaskedFixo
+                <InputMasked
                   mask="tel/cel"
                   nome="celular"
                   placeholder="Celular"
@@ -269,34 +216,55 @@ export default function FormularioFixo() {
                   custom={lead.celular ? validaTelefone(lead.celular) : true}
                   className="select-input--cinza"
                   tipo="tel"
+                  />
+              </FormRowHorizontal2Campos>
+              <FormRowHorizontalCidade>
+                <Select
+                  nome="estado"
+                  placeholder="UF"
+                  handleInput={handleEstado}
+                  valor={lead.estado}
+                  valores={estados}
+                  valido={controleForm.valido}
+                  className="select-input--cinza select-input--tiny"
                 />
-              </FormInputsFixo>
+                <Select
+                  nome="cidade"
+                  placeholder="Selecione uma Cidade"
+                  handleInput={handleInput}
+                  valor={lead.cidade}
+                  valores={cidades}
+                  valido={controleForm.valido}
+                  className="select-input--cinza select-input--medium"
+                />
+              </FormRowHorizontalCidade>
+            <Select
+              nome="capital"
+              placeholder="Capital disponível para investimento?"
+              handleInput={handleInput}
+              valor={lead.capital}
+              valores={capitais}
+              valido={controleForm.valido}
+              className="select-input--cinza"
+            />
+            </FormInputsMenor>
+            </FormConteudo>
+          <FormFooter>
+              <FormButton
+                type="submit"
+                backColor="azul"
+                fontColor="branco"
+              >
+              BAIXAR APRESENTAÇÃO!
+              </FormButton>
               <FormSeguranca>
                 <i className="fas fa-lock icon" />
                 <span className="textSeguranca">
                   Seus dados estão protegidos conosco.
                 </span>
               </FormSeguranca>
-              <FormFooterFixo>
-                <FormFixoButton
-                  type="submit"
-                  backColor="verdeClaro"
-                  fontColor="branco"
-                >
-                  <IconWrapper>
-                    CHAMAR NO WHATSAPP (17) 99788-1968
-                    <IconZap
-                      tamanho="3rem"
-                      icon="whatsapp"
-                      cor="#fff"
-                      tipo="svg"
-                    />
-                  </IconWrapper>
-                </FormFixoButton>
-              </FormFooterFixo>
-            </FormFixo>
-          </FormWrapper>
-        </>
+            </FormFooter>
+        </FormTopo>
       )}
     </>
   );

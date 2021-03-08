@@ -1,21 +1,55 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Button from "../buttons/Button";
 
-export const Form = styled.form`
-  width: 400px;
-  border-radius: 1.5rem;
-  background-color: ${props => props.theme.client.colors.azul};
-  opacity: 1;
-  box-shadow: ${props => props.theme.boxShadows.lighter};
+const pulse = keyframes`
+  0% {
+    transform: initial;
+    opacity: 1;
+  }
+  80% {
+    transform: initial;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1.2) scaleY(1.3);
+    opacity: 0;
+  }
+`;
 
-  padding: 2rem 1.5rem 0 1.5rem;
+export const Form = styled.form`
+  width: 370px;
+  border-radius: 1.5rem;
+  background-color: #fff;
+  opacity: 0.95;
+  box-shadow: ${props => props.theme.boxShadows.stronger};
+
+  padding-top: 2rem;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   z-index: 10;
 
-  @media (max-width: 500px) {
-    width: 90% !important;
+  @media (max-width: 400px) {
+    width: 98%;
+  }
+`;
+
+export const FormHome2 = styled.form`
+  width: 400px;
+  border-radius: 1.5rem;
+  background-color: #fff;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+
+  @media (max-width: 400px) {
+    width: 100%;
   }
 `;
 
@@ -34,45 +68,33 @@ export const FormRowCheck = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: -3rem;
+  margin: -1rem 0 -2rem 0;
 `;
 
 export const FormHeader = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   text-align: left;
-  color: ${props => props.theme.client.colors.branco};
 
   h2 {
-    font-size: 1.8rem;
-    border-radius: 10px;
-    padding: 0.5rem;
-    font-weight: bold;
+    text-transform: uppercase;
+    color: ${props => props.theme.client.colors.marrom};
+    font-size: 1.35rem;
+    margin-top: 4rem;
+    @media (max-width: 900px) {
+      margin-top: -2rem;
+    }
+  }
+
+  h3 {
+    text-transform: uppercase;
     width: 90%;
   }
 
   p {
-    color: ${props => props.theme.client.colors.azulEscuro};
-    width: 90%;
-    font-size: 1.5rem;
-  }
-
-  .formContinue {
-    color: ${props => props.theme.client.colors.rosa};
-  }
-`;
-
-export const FormHeaderModal = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-
-  p {
-    color: ${props => props.theme.client.colors.rosa};
+    color: #a8a18b;
     width: 90%;
     font-size: 1.5rem;
   }
@@ -85,26 +107,109 @@ export const FormButton = styled(Button)`
   height: 5rem;
   text-transform: uppercase;
   font-weight: bold;
-  border-top-right-radius: 0;
-  border-top-left-radius: 0;
+  border-radius: 0 0 15px 15px;
   @media (max-width: 410px) {
     width: 100%;
-    font-size: 1.4rem;
+  }
+
+  position: relative;
+  z-index: 1;
+  &::after {
+    animation: ${pulse} 3.6s ease-in-out infinite;
+    background-color: ${props => props.theme.client.colors.verde};
+    border-radius: 0 0 15px 15px;
+    content: "";
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  &:hover {
+    background-color: ${props => props.theme.client.colors.branco};
+    color: ${props => props.theme.client.colors.verde};
+    border: 4px solid ${props => props.theme.client.colors.verde};
+    &::after {
+      visibility: hidden;
+    }
+  }
+`;
+
+export const FormButtoncontinue = styled(Button)`
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 15;
+  @media (max-width: 410px) {
+    width: 100%;
+  }
+
+  position: relative;
+  z-index: 1;
+  &::after {
+    animation: ${pulse} 3.6s ease-in-out infinite;
+    background-color: ${props => props.theme.client.colors.roxo};
+    border-radius: 15px;
+    content: "";
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+  }
+  &:hover {
+    background-color: ${props => props.theme.client.colors.branco};
+    color: ${props => props.theme.client.colors.roxo};
+    border: 4px solid ${props => props.theme.client.colors.roxo};
+    &::after {
+      visibility: hidden;
+    }
+  }
+`;
+
+export const FormButtonHome = styled(Button)`
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 0;
+
+  @media (max-width: 410px) {
+    width: 100%;
+  }
+
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    animation: ${pulse} 3.6s ease-in-out infinite;
+    background-color: ${props => props.theme.client.colors.azul};
+    content: "";
+    display: inline-block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
   }
 
   &:hover {
-    background-color: ${props => props.theme.client.colors.verde};
-    color: ${props => props.theme.client.colors.branco};
-  }
-  
-  br{
-    display: none;
-    @media(max-width: 360px){
-      display: initial;
+    background-color: ${props => props.theme.client.colors.branco};
+    color: ${props => props.theme.client.colors.azul};
+    border: 4px solid ${props => props.theme.client.colors.azul};
+    &::after {
+      visibility: hidden;
     }
-  }
-  @media(max-width: 360px){
-    font-size: 1.5rem;
   }
 `;
 
@@ -133,33 +238,25 @@ export const StatusWrapper = styled.div`
 `;
 
 export const FormFooter = styled.div`
-  position: relative;
-  width: calc(100% + 30px);
-  margin: 0 -15px -20px;
-`;
-
-export const FormSeguranca = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
+  width: 100%;
+  /* margin-bottom: 3rem; */
+`;
 
-  .icon {
-    color: ${props => props.theme.client.colors.branco};
-  }
-  .textSeguranca {
-    color: #fff;
-    padding-left: 1rem;
-    font-size: 15px;
-    font-weight: 100;
-  }
+export const FormFooterHome = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  position: relative;
 `;
 
 export const FormInputs = styled.div`
   margin: 4rem 0;
 
   input,
-  select {
+  select,
+  textarea {
     margin: 1rem 0;
   }
 `;
@@ -168,7 +265,18 @@ export const FormInputsMenor = styled(FormInputs)`
   margin: 2rem 0;
 
   input,
-  select {
+  select,
+  textarea {
+    margin: 0.5rem 0;
+  }
+`;
+
+export const FormInputsMenorHome = styled(FormInputs)`
+  margin: 2rem 1.5rem;
+
+  input,
+  select,
+  textarea {
     margin: 0.5rem 0;
   }
 `;

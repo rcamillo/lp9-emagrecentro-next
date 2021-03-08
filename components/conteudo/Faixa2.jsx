@@ -2,24 +2,26 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import Container from "../ui/containers/Container";
+import ButtonPulse from "../ui/buttons/ButtonPulse";
 
 import { FaixaWrapperSimples } from "../ui/faixas/FaixaStyles";
 import {
-  FaixaConteudoResponsive,
-  Faixa1Texto,
-  Title,
+  TitleVerde,
   TitleSimple,
-  IconWrapper,
-  IconZap,
-  ButtonPulseFaixa1,
-  ButtonWrapper
 } from "./Faixa1";
 
-const FaixaConteudoResponsive2 = styled(FaixaConteudoResponsive)`
-  padding-top: 0;
+const ContentContainer = styled(Container)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
-const Faixa2Textos = styled(Faixa1Texto)``;
+const ContentGridText = styled.div`
+  display: grid;
+  grid-template-columns: 210px 260px 270px 260px;
+  column-gap: 10px;
+`;
 
 const FaixaWrapperSimples2 = styled(FaixaWrapperSimples)`
   @media (max-width: 900px) {
@@ -27,36 +29,110 @@ const FaixaWrapperSimples2 = styled(FaixaWrapperSimples)`
   }
 `;
 
-export const TitleFaixa2 = styled(Title)`
-  color: ${props => props.theme.client.colors.azulEscuro};
+const TextSimpleFaixa2 = styled(TitleSimple)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaaaaa;
+  text-align: center;
+  height: 8rem;
+  font-size: 15px;
+`;
+
+export const TitleBlue = styled(TitleVerde)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${props => props.theme.client.colors.azulClaro};
+`;
+
+const ContentColumnItems = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: space-between;
+  flex-direction: column;
+`;
+
+const RowBlue = styled.div`
+  background-color: ${props => props.theme.client.colors.azul};
+  width: 100%;
+  height: 1px;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+  position: relative;
+  width: 100%;
+
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
+  @media (max-width: 650px) {
+    padding: 2rem 0;
+  }
 `;
 
 const Faixa2 = ({ callForm }) => (
   <FaixaWrapperSimples2>
-    <Container>
-      <FaixaConteudoResponsive2>
-        <Faixa2Textos>
-          <Title>ECONOMIZE DINHEIRO REFORMANDO PNEUS</Title>
-          <TitleSimple>
-            Reduza seus custos fixos em mais de 10 mil reais! Se você tem
-            transportadora ou frota de caminhões e tratores, pare de gastar com
-            os consertos de pneus ou comprando pneus novos!
-          </TitleSimple>
+    <ContentContainer>
+      <ContentGridText>
+          <TitleBlue>
+          1ª franquia de estética do Brasil
+          </TitleBlue>
+          <ContentColumnItems>
+            <TextSimpleFaixa2>
+              35 anos de know-how
+            </TextSimpleFaixa2>
+            <RowBlue />
+            <TextSimpleFaixa2>
+              + de 200 franquias no Brasil e Estados Unidos
+            </TextSimpleFaixa2>
+            <RowBlue />
+            <TextSimpleFaixa2>
+              Quase 3 milhões de clientes
+            </TextSimpleFaixa2>
+          </ContentColumnItems>
+          <ContentColumnItems>
+            <TextSimpleFaixa2>
+              Margem de lucro de 50% 
+            </TextSimpleFaixa2>
+            <RowBlue />
+            <TextSimpleFaixa2>
+              Única franquia do segmento com 10 prêmios de excelência ABF.
+            </TextSimpleFaixa2>
+            <RowBlue />
+            <TextSimpleFaixa2>
+              Payback rápido: de 6 a 12 meses
+            </TextSimpleFaixa2>
+          </ContentColumnItems>
+          <ContentColumnItems>
+            <TextSimpleFaixa2>
+              Lucratividade de 20% 
+            </TextSimpleFaixa2>
+            <RowBlue />
+            <TextSimpleFaixa2>
+              Metodologia exclusiva de emagrecimento científico
+            </TextSimpleFaixa2>
+            <RowBlue />
+            <TextSimpleFaixa2>
+              Menor investimento do mercado
+            </TextSimpleFaixa2>
+          </ContentColumnItems>
+          
+        </ContentGridText>
           <ButtonWrapper>
-            <ButtonPulseFaixa1
-              backColor="verde"
+            <ButtonPulse
+              backColor="azul"
               fontColor="branco"
+              backPulse="azul"
               onClick={() => callForm()}
             >
-              <IconWrapper>
-                <IconZap tamanho="3rem" icon="whatsapp" cor="#fff" tipo="svg" />
-                CHAME NO WHATSAPP PARA ECONOMIZAR AGORA!
-              </IconWrapper>
-            </ButtonPulseFaixa1>
+              BAIXE NOSSA APRESENTAÇÃO!
+            </ButtonPulse>
           </ButtonWrapper>
-        </Faixa2Textos>
-      </FaixaConteudoResponsive2>
-    </Container>
+    </ContentContainer>
   </FaixaWrapperSimples2>
 );
 
