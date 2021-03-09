@@ -68,3 +68,41 @@ export const Icones = [
     text: "Treinamento e apoio em todas as fases de implantação"
   }
 ];
+
+//Faixa7
+export const depoimentos = [
+  {
+    id: 1,
+    icon: "depoimento1",
+    text:
+      "Conseguimos recuperar o investimento em pouco tempo e inauguramos uma segunda unidade.",
+    text2: "Sanauá - Franqueada Serraria e Jatiúca, Maceió-AL"
+  },
+  {
+    id: 2,
+    icon: "depoimento2",
+    text: "Emagrecentro, investimento certo na contra mão da crise.",
+    text2: "Anderson - Franqueado Mauá-SP e Santo André-SP"
+  },
+  {
+    id: 3,
+    icon: "depoimento3",
+    text:
+      "Investir em franquia é ter a certeza de que você não estará só para gerir o seu negócio.",
+    text2: "Viviane - Franqueada Aracajú-SE e Itabaiana-SE"
+  },
+  {
+    id: 4,
+    icon: "depoimento4",
+    text: "Pesquisei muito e a Emagrecentro disparado foi a melhor opção.",
+    text2: "João - Franqueado Palhoça e Biguaçú-SC"
+  }
+];
+
+//Faixa8
+export const List = [
+  { id: 1, text: "Sem cirurgia" },
+  { id: 2, text: "Sem remédio" },
+  { id: 3, text: "Sem fome" },
+  { id: 4, text: "Em até 20 semanas!" }
+];

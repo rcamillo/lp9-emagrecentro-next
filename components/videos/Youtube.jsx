@@ -10,8 +10,8 @@ const VideoWrapper = styled.div`
     justify-content: center;
   }
   .vimeo-player {
-    width: 560px;
-    height: 315px;
+    width: 500px;
+    height: 300px;
 
     @media (max-width: 1110px) {
       width: 420px;

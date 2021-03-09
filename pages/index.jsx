@@ -5,7 +5,7 @@ import Head from "next/head";
 import { Element, scroller } from "react-scroll";
 
 import PaginaInterna from "../components/paginas/PaginaInterna";
-import FormularioHome from "../components/formulario/FormularioHome";
+// import FormularioHome from "../components/formulario/FormularioHome";
 import FormularioHomeTopo from "../components/formulario/FormularioHomeTopo";
 
 import Faixa1 from "../components/conteudo/Faixa1";
@@ -15,7 +15,7 @@ import Faixa4 from "../components/conteudo/Faixa4";
 import Faixa5 from "../components/conteudo/Faixa5";
 import Faixa6 from "../components/conteudo/Faixa6";
 import Faixa7 from "../components/conteudo/Faixa7";
-// import Faixa8 from "../components/conteudo/Faixa8";
+import Faixa8 from "../components/conteudo/Faixa8";
 import Footer from "../components/layout/Footer";
 
 const MascaraCallForm = styled.div`
@@ -190,7 +190,7 @@ const Home = () => {
         </Element>
         <Faixa6 callForm={callForm}/>
         <Faixa7 />
-        {/* <Faixa8 callForm={callForm} /> */}
+        <Faixa8 callForm={callForm} />
         {/* <Footer callForm={callForm} /> */}
       </PaginaInterna>
     </div>
