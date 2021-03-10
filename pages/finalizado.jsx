@@ -12,8 +12,6 @@ import {
   ContentContainer,
   Faixa1Texto,
   FaixaConteudoResponsive,
-  Logo,
-  TitleVerde,
   ContentBackgroundLateral,
   BackgroundLateral,
   LogoContent
@@ -25,12 +23,14 @@ import { FaixaConteudo, FaixaSucessoTexto, LogoSucesso } from "./sucesso";
 import Icon from "../components/ui/icons/Icon";
 import ButtonPulse from "../components/ui/buttons/ButtonPulse";
 
-const FaixaWrapperSucesso = styled(FaixaWrapper)`
-  background-color: ${props => props.theme.client.colors.azul};
+const ContentContainerFinalizado = styled(ContentContainer)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-  @media (max-width: 400px) {
-    padding-bottom: 2rem;
-  }
+const FaixaConteudoFinalizado = styled(FaixaConteudoResponsive)`
+  max-width: 75rem;
 `;
 
 const FaixaConteudoIcones = styled(FaixaConteudo)`
@@ -56,6 +56,10 @@ const Faixa2Wrapper = styled.div`
   padding: 0 1rem;
 `;
 
+const ButtonWrapperFinalizado = styled(ButtonWrapper)`
+  justify-content: flex-start;
+`;
+
 // const ButtonPulseDownload = styled(ButtonPulseFaixa1)`
 //   &::after {
 //     background-color: ${props => props.theme.client.colors.verde};
@@ -74,17 +78,36 @@ const Title = styled.h1`
   margin-bottom: 1rem;
   color: ${props => props.theme.client.colors.azul};
   width: 100%;
+  text-align: left;
+`;
+
+const TitleCard = styled(Title)`
   text-align: center;
+  margin-bottom: 10rem;
 `;
 
 const Card = styled.div`
-  width: 280px;
-  margin: 0 2.5rem 4rem;
+  width: 260px;
+  margin: 0 2.5rem 10rem;
+  text-align: center;
+  a {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: ${props => props.theme.boxShadows.stronger};
+    padding: 0 4rem 4rem;
+    border-radius: 15px;
+  }
 `;
 
 const CardImg = styled.img`
-  height: 230px;
-  width: auto;
+  width: 100%;
+  height: auto;
+
+  margin-top: -5rem;
+  margin-bottom: 3rem;
 `;
 
 const CardText = styled.p`
@@ -93,6 +116,45 @@ const CardText = styled.p`
 
   span {
     font-weight: bold;
+  }
+`;
+
+const RedesWrapper = styled.div`
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+
+  padding-top: 5rem;
+
+  a {
+    background-color: #a5a5a5;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-left: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+`;
+
+const TextoWrapperFinalizado = styled(Faixa1Texto)`
+  justify-content: flex-start;
+  flex-direction: row;
+
+  max-width: 90rem;
+
+  @media (max-width: 1110px) {
+    max-width: 90rem;
+  }
+  @media (max-width: 1065px) {
+    max-width: 80rem;
+    align-items: flex-start;
+  }
+  @media (max-width: 900px) {
+    max-width: 100%;
+    justify-content: center;
+    font-size: 18px;
   }
 `;
 
@@ -156,7 +218,7 @@ const Finalizado = () => {
         />
       </Head>
       <Faixa1Wrapper>
-        <ContentContainer>
+        <ContentContainerFinalizado>
           <FaixaConteudoResponsive>
             <Faixa1Texto>
               <LogoContent>
@@ -178,19 +240,18 @@ const Finalizado = () => {
               <Text>
                 Aguarde a ligação de um de nossos consulstores, o DDD é 11!
               </Text>
-              <ButtonWrapper>
+              <ButtonWrapperFinalizado>
                 <ButtonPulse
                   backColor="verdeClaro"
                   fontColor="azul"
                   backPulse="verdeClaro"
-                  onClick={() => callForm()}
                 >
                   BAIXE NOSSA APRESENTAÇÃO!
                 </ButtonPulse>
-              </ButtonWrapper>
+              </ButtonWrapperFinalizado>
             </Faixa1Texto>
           </FaixaConteudoResponsive>
-        </ContentContainer>
+        </ContentContainerFinalizado>
         <ContentBackgroundLateral>
           <BackgroundLateral
             src="/static/img/faixa1/background-lateral.png"
@@ -199,73 +260,82 @@ const Finalizado = () => {
         </ContentBackgroundLateral>
       </Faixa1Wrapper>
 
+      <FaixaConteudoFinalizado>
+        <ContentContainerFinalizado>
+          <FaixaConteudoResponsive>
+            <Faixa1Texto>
+              <Title>
+                Ou, se preferir, fale diretamente com um de nossos consultores
+                pelo WhatsApp agora mesmo
+              </Title>
+              <ButtonWrapperFinalizado>
+                <ButtonPulse
+                  backColor="azul"
+                  fontColor="branco"
+                  backPulse="azul"
+                >
+                  ENVIAR MENSAGEM PARA O WHATSAPP +55 11 99254-8341
+                </ButtonPulse>
+              </ButtonWrapperFinalizado>
+            </Faixa1Texto>
+          </FaixaConteudoResponsive>
+        </ContentContainerFinalizado>
+      </FaixaConteudoFinalizado>
+
       <FaixaConteudo>
-        <Title>TOTAL CLEAN NA MÍDIA!</Title>
+        <TitleCard>Emagrecentro na imprensa!</TitleCard>
       </FaixaConteudo>
       <Faixa2Wrapper>
         <CardWrapper>
           <Card>
             <a
-              href="https://www.totalcleanbrasil.com.br/wp-content/uploads/2020/11/pegn.png "
+              href="http://www.agenciaoglobo.com.br/dinonews/Default.aspx?idnot=35967&tit=O+m%C3%A9dico+que+pediu+empr%C3%A9stimo+e+se+tornou+o+dono+de+uma+das+maiores+redes+de+franquias+de+emagrecimento+do+BrasilInfoMoneyhttps://www.facebook.com/InfoMoney/posts/1604608589574868"
               target="_blank"
             >
-              <CardImg src="/static/img/finalizado/midia1.png" />
+              <CardImg src="/static/img/finalizado/imprensa1.png" />
               <CardText>
-                <span>Pequenas Empresas e Grandes Negócios:</span> De uma
-                segunda fonte de renda até os R$ 4 milhões!
+                Como o Dr. Edson Ramuth se tornou dono de uma das maiores redes
+                de franquias de emagrecimento do Brasil!
               </CardText>
             </a>
           </Card>
           <Card>
             <a
-              href="https://www.totalcleanbrasil.com.br/wp-content/uploads/2020/11/terra.png"
+              href="https://revistapegn.globo.com/Franquias/noticia/2020/09/conheca-redes-chanceladas-com-o-certificado-de-franquia-internacional-2020.html"
               target="_blank"
             >
-              <CardImg src="/static/img/finalizado/midia2.png" />
+              <CardImg src="/static/img/finalizado/imprensa2.png" />
               <CardText>
-                <span>Portal Terra:</span> Como uma franquia de baixo
-                investimento pode ser a saída da crise?
+                Emagrecentro é uma das redes chanceladas com o Certificado de
+                Franquia Internacional 2020!
               </CardText>
             </a>
           </Card>
           <Card>
             <a
-              href="https://www.totalcleanbrasil.com.br/wp-content/uploads/2020/11/agenciaoglobo.png "
+              href="https://revistapegn.globo.com/Melhores-franquias/noticia/2020/10/os-vencedores-do-premio-melhores-franquias-do-brasil-2020.html"
               target="_blank"
             >
-              <CardImg src="/static/img/finalizado/midia3.png" />
+              <CardImg src="/static/img/finalizado/imprensa3.png" />
               <CardText>
-                <span>Agência O Globo:</span> Como a Total Clean é um negócio
-                inovador e com rápido retorno de investimento!
+                Emagrecentro é uma das franquias vencedoras do prêmio Melhores
+                Franquias do Brasil 2020!
               </CardText>
             </a>
           </Card>
         </CardWrapper>
       </Faixa2Wrapper>
-      <FaixaConteudoIcones>
-        <FaixaSucessoTexto>
-          <div>
-            <a
-              href="https://www.instagram.com/totalcleanbrasil/?hl=pt-br"
-              target="_blank"
-            >
-              <Icon
-                icon="instagram"
-                tipo="svg"
-                cor="#2b76f2"
-                tamanho="3.5rem"
-                margem="0 1.5rem"
-              />
-            </a>
-            <a
-              href="https://pt-br.facebook.com/totalcleanbrasil/"
-              target="_blank"
-            >
-              <Icon icon="facebook" tipo="svg" cor="#2b76f2" tamanho="3.5rem" />
-            </a>
-          </div>
-        </FaixaSucessoTexto>
-      </FaixaConteudoIcones>
+
+      <RedesWrapper>
+        <TextoWrapperFinalizado>
+          <a href="# " target="_blank">
+            <Icon tamanho="3rem" icon="facebook2" cor="#fff" tipo="svg" />
+          </a>
+          <a href="# " target="_blank">
+            <Icon tamanho="3rem" icon="instagram2" cor="#fff" tipo="svg" />
+          </a>
+        </TextoWrapperFinalizado>
+      </RedesWrapper>
     </div>
   );
 };
