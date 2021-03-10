@@ -106,3 +106,13 @@ export const List = [
   { id: 3, text: "Sem fome" },
   { id: 4, text: "Em até 20 semanas!" }
 ];
+
+//Footer
+export const listLogos = [
+  { id: 1, logo: "emagrecentro-color", alt: "Emagrecentro" },
+  { id: 2, logo: "35-anos", alt: "35 Anos" },
+  { id: 3, logo: "abf-2019", alt: "Selo ABF" },
+  { id: 4, logo: "abf-2020", alt: "Selo ABF" },
+  { id: 5, logo: "melhor-franquia", alt: "Melhor Franquia" },
+  { id: 6, logo: "frances", alt: "Frances" }
+];
