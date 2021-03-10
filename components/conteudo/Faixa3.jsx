@@ -59,6 +59,12 @@ const ImagensWrapper = styled.div`
     align-items: center;
     flex-wrap: wrap
   }
+  @media (max-width: 600px){
+    flex-direction: column;
+  }
+  @media (max-width: 390px){
+    justify-content: center;
+  }
 `;
 
 const ColunaImagem1 = styled.div`
@@ -72,23 +78,46 @@ const ColunaImagem1 = styled.div`
   @media (max-width: 500px){
     display: flex;
     justify-content: space-around;
-    flex-direction: row;
+    width: 95%;
     flex-wrap: wrap;
     img {
-      height: 200px;
-      width: 190px;
+      height: 180px;
+      width: 170px;
       margin-right: 0.5rem;
       box-shadow: 0 0 20px #a5a2a2;
+    }
+  }
+  @media (max-width: 390px){
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+      img {
+      height: initial;
+      width: 300px;
+      margin-right: 0;
     }
   }
 `;
 const ColunaImagem2 = styled.div`
   flex: 1 0 150px;
   @media (max-width: 500px){
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    flex-wrap: wrap;
     img {
-      height: 200px;
-      width: 190px;
+      height: 180px;
+      width: 170px;
       box-shadow: 0 0 20px #a5a2a2;
+    }
+  }
+  @media (max-width: 390px){
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: initial;
+      width: 300px;
     }
   }
 `;

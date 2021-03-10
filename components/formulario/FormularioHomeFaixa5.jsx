@@ -42,6 +42,10 @@ const ContentPersonagem = styled.div`
   align-items: flex-end;
   height: 420px;
   width: 450px;
+
+  @media (max-width: 1000px){
+    display: none;
+  }
 `;
 const Personagem = styled.img`
   height: 450px;

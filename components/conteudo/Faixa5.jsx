@@ -13,6 +13,10 @@ const ContentContainer = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 400px){
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const Faixa5 = () => {

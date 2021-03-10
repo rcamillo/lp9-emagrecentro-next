@@ -33,7 +33,11 @@ const ContentIcons = styled.div`
   max-width: 700px;
 
   @media(max-width: 750px){
-    max-width: auto;
+    max-width: 100%;
+  }
+  @media(max-width: 440px){
+    justify-content: center;
+    align-items: center;
   }
 `;
 const ContentIconText = styled.div`
@@ -43,6 +47,10 @@ const ContentIconText = styled.div`
   flex-direction: column;
   width: 200px;
   margin-bottom: 1.5rem;
+
+  @media(max-width: 440px){
+     width: 100%;
+  }
 `;
 const ContentIcon = styled.div``;
 const Icon = styled.img`

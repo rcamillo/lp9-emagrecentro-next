@@ -14,6 +14,12 @@ import Icon from "../ui/icons/Icon";
 import Youtube from "../videos/Youtube";
 import { List } from "../../helpers/dados";
 
+const FaixaWrapperSimplesPadding = styled(FaixaWrapperSimples)`
+  @media (max-width: 990px){
+    padding: 0 1rem;
+  }
+`;
+
 const ContentContainer = styled(Container)`
   display: flex;
   justify-content: center;
@@ -30,10 +36,21 @@ const ContentBlock = styled.div`
   background-color: #f4f4f4;
   border-radius: 5px;
   padding: 1rem;
+
+  @media (max-width: 990px){
+    flex-direction: column;
+    width: auto;
+    padding: 0 1rem;
+    min-height: initial;
+  }
 `;
 
 const Block = styled.div`
   width: 480px;
+  @media (max-width: 990px){
+    width: 100%;
+    margin-top: 2rem;
+  }
 `;
 
 const TitleStrongFaixa8 = styled(TitleVerde)`
@@ -71,7 +88,7 @@ const ContentIcon = styled.div`
 `;
 
 const Faixa8 = ({ callForm }) => (
-  <FaixaWrapperSimples>
+  <FaixaWrapperSimplesPadding>
     <ContentContainer>
       <ContentBlock>
         <Block>
@@ -103,7 +120,7 @@ const Faixa8 = ({ callForm }) => (
         </Block>
       </ContentBlock>
     </ContentContainer>
-  </FaixaWrapperSimples>
+  </FaixaWrapperSimplesPadding>
 );
 
 Faixa8.propTypes = {

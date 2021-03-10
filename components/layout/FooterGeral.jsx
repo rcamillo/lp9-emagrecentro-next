@@ -14,6 +14,7 @@ const FooterWrapperSimples = styled(FaixaWrapperSimples)`
 const FooterP9 = styled.div`
   display: flex;
   justify-content: center;
+  background-color: ${props => props.theme.client.colors.azul};
 
   @media (max-width: 900px) {
     width: 100%;
@@ -21,10 +22,11 @@ const FooterP9 = styled.div`
 
   p {
     font-size: 15px;
+    color: #fff;
 
     strong {
       a {
-        color: #000;
+        color: #fff;
       }
     }
   }

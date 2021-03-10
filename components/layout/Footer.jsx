@@ -13,7 +13,8 @@ const FooterWrapperSimples = styled(FaixaWrapperSimples)`
 background-color: #f6f6f6;
 padding: 5rem 0 0;
   @media (max-width: 900px) {
-    padding: 0 1rem;
+    padding: 1.5rem 0 0;
+    margin-top: 5rem;
   }
 `;
 
@@ -28,20 +29,18 @@ const ContentContainer = styled.div`
   }
 `;
 
-const FooterWrapper = styled.footer`
-  position: relative;
-  padding: 4rem 0;
-`;
-
 const FooterContent = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
   max-width: 60rem;
+  padding: 0 1rem;
 
   @media (max-width: 900px) {
     width: 100%;
+    max-width: 100%;
     justify-content: center;
+    align-items: center;
     margin-bottom: 2rem;
   }
 
@@ -82,6 +81,10 @@ const ContentImageLogo = styled.div`
 const ImageLogos = styled.img`
   max-width: 200px;
   max-height: 150px;
+
+  @media (max-width: 600px) {
+    max-height: 120px;
+  }
 `;
 
 const FooterP9 = styled.div`

@@ -163,20 +163,20 @@ export default function FormularioContinue() {
     }
   };
 
-  // useEffect(() => {
-  //   async function buscaSession() {
-  //     const storageSession = await JSON.parse(
-  //       localStorage.getItem("@emagrecentro/session-lead")
-  //     );
+  useEffect(() => {
+    async function buscaSession() {
+      const storageSession = await JSON.parse(
+        localStorage.getItem("@emagrecentro/session-lead")
+      );
 
-  //     if (!storageSession) {
-  //       router.push("/");
-  //     }
-  //     setSession(storageSession);
-  //   }
+      if (!storageSession) {
+        router.push("/");
+      }
+      setSession(storageSession);
+    }
 
-  //   buscaSession();
-  // }, ["umavez"]);
+    buscaSession();
+  }, ["umavez"]);
 
   return (
     <>

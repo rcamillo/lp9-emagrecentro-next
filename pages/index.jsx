@@ -176,13 +176,13 @@ const Home = () => {
         <Faixa2 callForm={callForm} />
         <Faixa3/>
         <Faixa4 callForm={callForm} />
-        {/* <Element name="formFaixa5">
+        <Element name="formFaixa5">
           <Faixa5 />
-        </Element> */}
-        {/* <Faixa6 callForm={callForm}/> */}
-        {/* <Faixa7 /> */}
-        {/* <Faixa8 callForm={callForm} /> */}
-        {/* <Footer callForm={callForm} /> */}
+        </Element>
+        <Faixa6 callForm={callForm}/>
+        <Faixa7 />
+        <Faixa8 callForm={callForm} />
+        <Footer callForm={callForm} />
       </PaginaInterna>
     </div>
   );

@@ -30,8 +30,9 @@ export const estados = [
 ];
 
 export const capitais = [
-  "Tenho mais de R$ 29 mil para investir",
-  "Não tenho, mas quero saber como funciona "
+  "Tenho R$ 100 mil para investir",
+  "Tenho R$ 200 mil para investir",
+  "Não tenho, mas quero saber sobre a franquia"
 ];
 
 //Faixa4

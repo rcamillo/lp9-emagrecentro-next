@@ -43,6 +43,17 @@ const Card = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
+  @media (max-width: 1020px){
+    max-width: 450px;
+    margin: 2rem 1rem;
+  }
+
+  @media (max-width: 500px){
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+  }
 `;
 
 const ContentTexts = styled.div`
@@ -51,6 +62,10 @@ const ContentTexts = styled.div`
   align-items: flex-start;
   flex-direction: column;
   width: 350px;
+
+  @media (max-width: 370px){
+    width: 100%;
+  }
 `;
 
 const ContentImageFoto = styled.div`
@@ -63,12 +78,20 @@ const ImageFoto = styled.img`
 const ContentImageAspas = styled.div``;
 const ImageAspas = styled.img`
   height: 5rem;
+
+  @media (max-width: 1020px){
+    height: 2.5rem;
+  }
 `;
 
 const TextCardGrey = styled.p`
   font-size: 18px;
   height: 7rem;
   line-height: 20px;
+
+  @media (max-width: 370px){
+    height: auto;
+  }
 `;
 const TextFranquedoCard = styled.p`
   color: #1f7bca;
