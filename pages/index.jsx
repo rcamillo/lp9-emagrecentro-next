@@ -5,8 +5,8 @@ import Head from "next/head";
 import { Element, scroller } from "react-scroll";
 
 import PaginaInterna from "../components/paginas/PaginaInterna";
-// import FormularioHome from "../components/formulario/FormularioHome";
 import FormularioHomeTopo from "../components/formulario/FormularioHomeTopo";
+// import FormularioHome from "../components/formulario/FormularioHome";
 
 import Faixa1 from "../components/conteudo/Faixa1";
 import Faixa2 from "../components/conteudo/Faixa2";
@@ -191,7 +191,7 @@ const Home = () => {
         <Faixa6 callForm={callForm}/>
         <Faixa7 />
         <Faixa8 callForm={callForm} />
-        {/* <Footer callForm={callForm} /> */}
+        <Footer callForm={callForm} />
       </PaginaInterna>
     </div>
   );
