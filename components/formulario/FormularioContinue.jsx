@@ -14,7 +14,9 @@ import {
   FormButton,
   FormFooter,
   FormInputsMenor,
-  StatusWrapper
+  StatusWrapper,
+  FormSeguranca,
+  FormHeader
 } from "../ui/formulario/FormStyles";
 
 import {
@@ -23,13 +25,47 @@ import {
   validaTelefone
 } from "../../helpers/formulario";
 
-const FormContinue = styled(Form)`
-  padding: 0;
-  box-shadow: none;
-  background-color: transparent;
+import { LogoContent, Logo } from "../conteudo/Faixa1";
 
+const FormContinue = styled(Form)`
+  width: 400px;
+  box-shadow: none;
+  background-color: #fff;
+
+  padding: 4rem 3rem 4rem;
+  margin-bottom: -8rem;
+
+  position: relative;
+  z-index: 100;
   @media (max-width: 600px) {
     width: 100%;
+  }
+`;
+
+const FormHeaderContinue = styled(FormHeader)`
+  justify-content: center;
+  text-align: center;
+`;
+
+const LogoContentContinue = styled(LogoContent)`
+  justify-content: center;
+  margin-bottom: 0;
+`;
+
+const LogoContinue = styled(Logo)`
+  width: 230px;
+  height: auto;
+`;
+
+const ContinueInputsMenor = styled(FormInputsMenor)`
+  margin-top: 0;
+`;
+
+const FormButtonContinue = styled(FormButton)`
+  border-radius: 15px;
+
+  &::after {
+    border-radius: 15px;
   }
 `;
 
@@ -118,20 +154,20 @@ export default function FormularioContinue() {
     }
   };
 
-  useEffect(() => {
-    async function buscaSession() {
-      const storageSession = await JSON.parse(
-        localStorage.getItem("@emagrecentro/session-lead")
-      );
+  // useEffect(() => {
+  //   async function buscaSession() {
+  //     const storageSession = await JSON.parse(
+  //       localStorage.getItem("@emagrecentro/session-lead")
+  //     );
 
-      if (!storageSession) {
-        router.push("/");
-      }
-      setSession(storageSession);
-    }
+  //     if (!storageSession) {
+  //       router.push("/");
+  //     }
+  //     setSession(storageSession);
+  //   }
 
-    buscaSession();
-  }, ["umavez"]);
+  //   buscaSession();
+  // }, ["umavez"]);
 
   return (
     <>
@@ -150,7 +186,18 @@ export default function FormularioContinue() {
       )}
       {!controleForm.enviando && !controleForm.erro && !controleForm.sucesso && (
         <FormContinue onSubmit={handleSubmit}>
-          <FormInputsMenor>
+          <FormHeaderContinue>
+            <LogoContentContinue>
+              <picture>
+                {/* <source type="image/webp" srcSet="/static/img/logo_azul.webp" /> */}
+                <LogoContinue
+                  src="/static/img/logo_azul.png"
+                  alt="Emagrecentro"
+                />
+              </picture>
+            </LogoContentContinue>
+          </FormHeaderContinue>
+          <ContinueInputsMenor>
             <InputMasked
               mask="tel/cel"
               nome="whatsapp"
@@ -172,18 +219,29 @@ export default function FormularioContinue() {
             />
             <TextArea
               nome="porque"
-              placeholder="Tem alguma experiência no setor de franquias e/ou limpeza?"
+              placeholder="Tem alguma experiência no setor de franquias e/ou estética?"
               handleInput={handleInput}
               valor={lead.porque}
               valido={controleForm.valido}
               className="text-area text-area--cinza"
             />
-          </FormInputsMenor>
+          </ContinueInputsMenor>
           <FormFooter>
-            <FormButton type="submit" backColor="laranja" fontColor="branco">
+            <FormButtonContinue
+              type="submit"
+              backColor="azul"
+              fontColor="branco"
+              backPulse="azul"
+            >
               CONCLUIR CADASTRO!
-            </FormButton>
+            </FormButtonContinue>
           </FormFooter>
+          <FormSeguranca>
+            <i className="fas fa-lock icon" />
+            <span className="textSeguranca">
+              Site 100% seguro e livre de spam
+            </span>
+          </FormSeguranca>
         </FormContinue>
       )}
     </>

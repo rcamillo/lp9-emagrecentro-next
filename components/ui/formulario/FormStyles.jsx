@@ -116,7 +116,7 @@ export const FormButton = styled(Button)`
   z-index: 1;
   &::after {
     animation: ${pulse} 3.6s ease-in-out infinite;
-    background-color: ${props => props.theme.client.colors.verde};
+    background-color: ${props => props.theme.client.colors.azul};
     border-radius: 0 0 15px 15px;
     content: "";
     display: inline-block;
@@ -128,9 +128,7 @@ export const FormButton = styled(Button)`
     z-index: -1;
   }
   &:hover {
-    background-color: ${props => props.theme.client.colors.branco};
-    color: ${props => props.theme.client.colors.verde};
-    border: 4px solid ${props => props.theme.client.colors.verde};
+    background-color: ${props => props.theme.client.colors.verde};
     &::after {
       visibility: hidden;
     }
@@ -249,6 +247,23 @@ export const FormFooterHome = styled.div`
   justify-content: center;
   margin-top: 2rem;
   position: relative;
+`;
+
+export const FormSeguranca = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 1rem 0;
+
+  .icon {
+    color: ${props => props.theme.client.colors.verdeClaro};
+  }
+  .textSeguranca {
+    color: ${props => props.theme.client.colors.verdeClaro};
+    padding-left: 1rem;
+    font-size: 14px;
+    font-weight: 400;
+  }
 `;
 
 export const FormInputs = styled.div`
