@@ -113,7 +113,7 @@ const Faixa2 = ({ callForm }) => (
       <ContentGridText>
         <ContentText>
           <TitleBlue>
-            1ª Franquia de estética do Brasil
+            1ª Franquia emagrecimento e estética do Brasil
           </TitleBlue>
         </ContentText>
         <ContentColumnItems>
@@ -146,7 +146,7 @@ const Faixa2 = ({ callForm }) => (
             Metodologia exclusiva de emagrecimento científico
           </TextSimpleFaixa2>
           <TextSimpleFaixa2>
-            Menor investimento do mercado
+            Modelo de negócio considerado serviço essencial
           </TextSimpleFaixa2>
         </ContentColumnItems>
         

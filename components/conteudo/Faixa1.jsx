@@ -172,13 +172,13 @@ const Faixa1 = () => {
               </picture>
             </LogoContent>
             <Title>
-              Seja franqueado (a) Emagracentro
+              Invista a partir de R$ 100 mil na sua franquia de emagrecimento
             </Title>
             <TitleVerde>
                 e fature, em média, R$ 1 milhão por ano!
             </TitleVerde>
             <TitleSimple>
-              Faça parte da maior franquia de clínicas de emagrecimento e estética das Américas! Baixe a apresentação e saiba como.
+              Seja franqueado (a) Emagrecentro, a maior franquia de emagrecimento e estética das Américas, que cresceu 20% em 2020! Baixe a apresentação e saiba como.
             </TitleSimple>
           </Faixa1Texto>
         </FaixaConteudoResponsive>
