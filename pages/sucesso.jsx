@@ -1,186 +1,198 @@
-/* eslint-disable consistent-return */
-import styled, { keyframes } from "styled-components";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+
+import styled from "styled-components";
 import Head from "next/head";
 
-import Link from "../components/ui/buttons/Link";
-import Icon from "../components/ui/icons/Icon";
+import Container from "../components/ui/containers/Container";
+import FormularioContinue from "../components/formulario/FormularioContinue";
 
-import Logo from "../components/ui/faixas/Logo";
+import {
+  FaixaConteudoResponsive,
+  Faixa1Texto,
+  LogoContent,
+  Logo,
+  Title
+} from "../components/conteudo/Faixa1";
 
-const LinkDownload = styled(Link)`
-  padding: 1.5rem 2.5rem;
-  transition: all 0.2s ease 0s;
+import { FaixaWrapper } from "../components/ui/faixas/FaixaStyles";
 
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  @media (max-width: 500px) {
-    p {
-      width: 95%;
-    }
-  }
+export const FaixaWrapperSucesso = styled(FaixaWrapper)`
+  background-color: ${props => props.theme.client.colors.azul};
 `;
 
-const WAWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  padding: 1rem 2rem;
-
-  @media (max-width: 500px) {
-    flex-direction: column;
-    width: fit-content;
-  }
+export const FaixaConteudo = styled(FaixaConteudoResponsive)`
+  max-width: 100% !important;
 `;
 
-const ConteudoWrapper = styled.div`
-  background-color: ${props => props.theme.client.colors.primaria};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 5rem 2rem 10rem;
-  position: relative;
-  text-align: center;
+export const FaixaSucessoTexto = styled(Faixa1Texto)`
+  max-width: 100rem;
 
+  @media (max-width: 1110px) {
+    max-width: 80rem;
+  }
   @media (max-width: 900px) {
-    background-position: cover right;
-    padding: 2rem 1.5rem;
+    align-items: center;
+    max-width: 100%;
+    font-size: 18px;
+  }
+  @media (max-width: 600px) {
+    font-size: 17px;
+  }
+  @media (max-width: 400px) {
+    font-size: 16px;
   }
 `;
 
-const TextSucesso = styled.p`
-  width: 60vw;
-  color: ${props => props.theme.client.colors.fontPrimaria};
-  font-size: 16px;
-  margin-bottom: 2rem;
-
-  @media (max-width: 900px) {
-    width: 100%;
-  }
+export const LogoSucesso = styled(Logo)`
+  width: 200px;
 `;
 
-const TextSucessoCap = styled(TextSucesso)`
-  font-size: 28px;
+const TitleSucesso = styled(Title)`
+  color: ${props => props.theme.client.colors.verdeClaro};
   font-weight: 800;
 `;
 
-const Teste = styled(Icon)`
-  margin-right: 0.5rem;
+const TitleSimple = styled.p`
+  color: white;
+  font-size: 17px;
+
+  margin-bottom: 4rem;
 `;
 
-const Sucesso = () => {
-  const router = useRouter();
+export const ContentIconsTop = styled.div`
+  display: flex;
+  position: absolute;
+  right: 13%;
+  top: 2rem;
 
-  const [leadCompleto, setlead] = useState();
+  @media (max-width: 600px) {
+    right: 2rem;
+  }
+`;
 
-  useEffect(() => {
-    async function buscaSession() {
-      const session = await JSON.parse(
-        await localStorage.getItem("@emagrecentro/session-lead")
-      );
+export const ContentIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 1.5rem;
+`;
 
-      if (session) {
-        const leadNome = session.lead_body.nome;
-        setlead(leadNome);
-        setTimeout(() => {
-          window.location.href =
-            "https://wa.me/5517997881968/?text=" +
-            encodeURI(
-              "[PLC Máquinas] Quero mais informações sobre máquinas vulcanizadoras"
-            );
-        }, 5000);
-      } else {
-        router.push("/");
-        return false;
-      }
+const FormWrapper = styled.div`
+  position: relative;
+`;
 
-      localStorage.removeItem("@emagrecentro/session-lead");
-    }
+const ContentPersonagem = styled.div`
+  position: absolute;
+  bottom: -29px;
+  right: -550px;
+  z-index: 100;
 
-    buscaSession();
-  }, ["umavez"]);
+  @media (max-width: 1110px) {
+    right: -460px;
+  }
+  @media (max-width: 992px) {
+    right: -440px;
+  }
 
-  return (
-    <div>
-      <Head>
-        <title>
-          Fature vulcanizando pneus | PLC MÁQUINAS Silvio Pelicer 
-        </title>
-        <meta
-          name="description"
-          content="Fature mais de 10 mil por mês com as máquinas vulcanizadoras PLC. Conserte pneus agrícolas, de carga e OTR. Compare os custos. Orçamento via WhatsApp."
-        />
-        <meta
-          name="keywords"
-          content="plc maquinas vulcanizadoras, silvio pelicer, pneus agricolas, pneus de carga, pneus otr, conserto de pneus caminhao, pneus trator, vulcanizar pneu preço, vulcanizaçao de pneus, custo conserto pneu, maquina de vulcanizar pneus, pneus para maquinas, pneu vulcanizado,  maquina p1 vulcanizar pneu, descolador de pneu agricola, descolar de pneu caminhao"
-        />
-        <meta name="robots" content="index, follow" />
-        <meta name="rating" content="general" />
+  @media (max-width: 900px) {
+    display: none;
+  }
+`;
+const Personagem = styled.img`
+  height: 600px;
+  width: 600px;
 
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://lp9plcmaquinas.netlify.app/static/img/og.jpg"
-        />
-        <meta
-          property="og:title"
-          content="Fature vulcanizando pneus | PLC MÁQUINAS Silvio Pelicer "
-        />
-        <meta
-          property="og:description"
-          content="Fature mais de 10 mil por mês com as máquinas vulcanizadoras PLC. Conserte pneus agrícolas, de carga e OTR. Compare os custos. Orçamento via WhatsApp."
-        />
-        <meta
-          property="og:url"
-          content="https://lp9plcmaquinas.netlify.app/"
-        />
-      </Head>
-      <>
-        <ConteudoWrapper>
-          <Logo src="/static/img/faixa1/logo.png" alt="logo, PLC Máquinas" />
-          <TextSucessoCap>
-            Obrigado, {leadCompleto}, <br />
-            aguarde, você está sendo redirecionado para o nosso
-            <br /> WhatsApp (17) 99788-1968
-          </TextSucessoCap>
-          <TextSucesso>
-            Caso o WhatsApp não abra automaticamente nos próximos 15 segundos,
-            clique no botão abaixo.
-          </TextSucesso>
-          <WAWrapper>
-            <LinkDownload
-              backColor="verde"
-              fontColor="branco"
-              center="center"
-              href={
-                "https://wa.me/5517997881968/?text=" +
-                encodeURI(
-                  "[PLC Máquinas] Quero mais informações sobre máquinas vulcanizadoras"
-                )
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Teste
-                tamanho="2rem"
-                cor={props => props.theme.client.colors.branco}
-                icon="whatsapp"
-                tipo="svg"
-              />
-              <p>
-                {" "}
-                Enviar mensagem no <strong>WhatsApp</strong>
-              </p>
-            </LinkDownload>
-          </WAWrapper>
-        </ConteudoWrapper>
-      </>
-    </div>
-  );
-};
+  @media (max-width: 1110px) {
+    height: 500px;
+    width: 500px;
+  }
+
+  @media (max-width: 992px) {
+    height: 480px;
+    width: 480px;
+  }
+`;
+
+const Sucesso = () => (
+  <div>
+    <Head>
+      <title>
+        Fature até R$ 15 mil POR MÊS com a franquia home office Total Clean!
+      </title>
+      <meta
+        name="description"
+        content="Total Clean é a microfranquia home office TOP OF MIND no setor de limpeza e impermeabilização de sofás, estofados e tapetes. Baixe nossa apresentação."
+      />
+      <meta
+        name="keywords"
+        content="microfranquia, microfranquia home office, microfranquia online barata, franquia impermeabilização, franquia limpeza de estofados, total clean franquia, higienização de sofá, franquia sofá, franquia limpeza estofados"
+      />
+      <meta name="robots" content="index, follow" />
+      <meta name="rating" content="general" />
+
+      <meta property="og:type" content="website" />
+      <meta
+        property="og:image"
+        content="https://franquiaimpermeabilizacao.com.br/static/img/og.jpg"
+      />
+      <meta
+        property="og:title"
+        content="Fature até R$ 15 mil POR MÊS com a franquia home office Total Clean!"
+      />
+      <meta
+        property="og:description"
+        content="Total Clean é a microfranquia home office TOP OF MIND no setor de limpeza e impermeabilização de sofás, estofados e tapetes. Baixe nossa apresentação."
+      />
+      <meta
+        property="og:url"
+        content="https://franquiaimpermeabilizacao.com.br/"
+      />
+    </Head>
+    <FaixaWrapperSucesso>
+      <Container>
+        <FaixaConteudo>
+          <FaixaSucessoTexto>
+            <LogoContent>
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/static/img/logo_branco.webp"
+                />
+                <LogoSucesso
+                  src="/static/img/logo_branco.png"
+                  alt="Emagrecentro"
+                />
+              </picture>
+            </LogoContent>
+            <TitleSucesso>Você está quase lá...</TitleSucesso>
+            <TitleSimple>
+              Antes de baixar a apresentação da <br />
+              Emagrecentro, finalize seu cadastro abaixo:
+            </TitleSimple>
+            <FormWrapper>
+              <FormularioContinue />
+              <ContentPersonagem>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/static/img/faixa5/personagem.webp"
+                  />
+                  <Personagem
+                    src="/static/img/faixa5/personagem.png"
+                    alt="Emagrecentro"
+                  />
+                </picture>
+              </ContentPersonagem>
+            </FormWrapper>
+          </FaixaSucessoTexto>
+        </FaixaConteudo>
+      </Container>
+    </FaixaWrapperSucesso>
+  </div>
+);
 
 export default Sucesso;

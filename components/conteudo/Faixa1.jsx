@@ -10,7 +10,7 @@ import {
   FaixaTextos
 } from "../ui/faixas/FaixaStyles";
 
-const Faixa1Wrapper = styled(FaixaWrapper)`
+export const Faixa1Wrapper = styled(FaixaWrapper)`
   background-image: none;
   background-color: ${props => props.theme.client.colors.azul};
   padding: 0 1rem;
@@ -22,7 +22,7 @@ const Faixa1Wrapper = styled(FaixaWrapper)`
   }
 `;
 
-const ContentContainer = styled(Container)`
+export const ContentContainer = styled(Container)`
   width: 40vw;
 
   @media (max-width: 900px) {
@@ -30,7 +30,7 @@ const ContentContainer = styled(Container)`
   }
 `;
 
-const ContentBackgroundLateral = styled.div`
+export const ContentBackgroundLateral = styled.div`
   margin-right: -1rem;
   margin-bottom: -1rem;
 
@@ -38,7 +38,7 @@ const ContentBackgroundLateral = styled.div`
     display: none;
   }
 `;
-const BackgroundLateral = styled.img`
+export const BackgroundLateral = styled.img`
   position: relative;
   width: 50vw;
   height: 60rem;
