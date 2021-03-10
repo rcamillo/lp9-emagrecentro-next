@@ -6,7 +6,6 @@ import { Element, scroller } from "react-scroll";
 
 import PaginaInterna from "../components/paginas/PaginaInterna";
 import FormularioHomeTopo from "../components/formulario/FormularioHomeTopo";
-// import FormularioHome from "../components/formulario/FormularioHome";
 
 import Faixa1 from "../components/conteudo/Faixa1";
 import Faixa2 from "../components/conteudo/Faixa2";
@@ -42,35 +41,27 @@ const FormWrapperHorizontal = styled.div`
   flex-direction: column;
   z-index: 25;
   margin-top: -45rem;
+
+  @media (max-width: 900px) {
+     margin-top: -15rem;
+  }
 `;
-// const FormWrapper = styled.div`
-//   position: relative;
-//   z-index: 25;
 
-//   @media (max-width: 1200px) {
-//     right: 3rem;
-//   }
-
-//   @media (max-width: 1045px) {
-//     right: 1rem;
-//   }
-
-//   @media (max-width: 900px) {
-//     position: inherit;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     align-content: center;
-//     flex-direction: column;
-
-//     margin-bottom: 5rem;
-//   }
-// `;
-
-const ContentPersonagemForm = styled.div``;
+const ContentPersonagemForm = styled.div`
+  @media (max-width: 1075px){
+    margin-left: 9rem;
+  }
+`;
 const PersonagemForm = styled.img`
   height: 33rem;
   margin-bottom: -1rem;
+
+  @media (max-width: 900px) {
+     height: 25rem;
+  }
+  @media (max-width: 500px) {
+     height: 18rem;
+  }
 `;
 
 const Home = () => {
@@ -185,13 +176,13 @@ const Home = () => {
         <Faixa2 callForm={callForm} />
         <Faixa3/>
         <Faixa4 callForm={callForm} />
-        <Element name="formFaixa5">
+        {/* <Element name="formFaixa5">
           <Faixa5 />
-        </Element>
-        <Faixa6 callForm={callForm}/>
-        <Faixa7 />
-        <Faixa8 callForm={callForm} />
-        <Footer callForm={callForm} />
+        </Element> */}
+        {/* <Faixa6 callForm={callForm}/> */}
+        {/* <Faixa7 /> */}
+        {/* <Faixa8 callForm={callForm} /> */}
+        {/* <Footer callForm={callForm} /> */}
       </PaginaInterna>
     </div>
   );

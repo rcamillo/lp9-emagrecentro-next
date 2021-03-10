@@ -17,15 +17,26 @@ export const Faixa1Wrapper = styled(FaixaWrapper)`
   position: relative;
   display: flex;
   flex-direction: row;
+  @media (max-width: 900px) {
+    padding: 0 1rem 13rem;
+  }
 `;
 
 export const ContentContainer = styled(Container)`
   width: 40vw;
+
+  @media (max-width: 900px) {
+    width: auto;
+  }
 `;
 
 export const ContentBackgroundLateral = styled.div`
   margin-right: -1rem;
   margin-bottom: -1rem;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 export const BackgroundLateral = styled.img`
   position: relative;

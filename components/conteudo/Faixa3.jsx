@@ -14,11 +14,22 @@ const ContentContainer = styled(Container)`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
+  @media (max-width: 900px){
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4rem;
+  }
 `;
 
 const FaixaConteudoResponsive3 = styled(FaixaConteudoResponsive)`
   padding: 0 2rem 0 5rem;
   max-width: 40rem;
+  @media (max-width: 900px){
+    max-width: initial;
+    width: 100%;
+    padding: 0 1.5rem;
+  }
 `;
 
 const TitleFaixa3 = styled(Title)`
@@ -37,25 +48,69 @@ const TextSimple = styled.p`
 
 const ImagensWrapper = styled.div`
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   margin: 15px auto 0;
   width: 1550px;
+  @media (max-width: 900px){
+    width: 100%;
+  }
+  @media (max-width: 600px){
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap
+  }
 `;
 
 const ColunaImagem1 = styled.div`
   flex: 1 0 100px;
   padding: 0 10px;
+
+  @media (max-width: 600px){
+    flex: 1 0 150px;
+  }
+
+  @media (max-width: 500px){
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    img {
+      height: 200px;
+      width: 190px;
+      margin-right: 0.5rem;
+      box-shadow: 0 0 20px #a5a2a2;
+    }
+  }
 `;
 const ColunaImagem2 = styled.div`
   flex: 1 0 150px;
+  @media (max-width: 500px){
+    img {
+      height: 200px;
+      width: 190px;
+      box-shadow: 0 0 20px #a5a2a2;
+    }
+  }
 `;
 const ColunaImagem3 = styled.div`
   flex: 1 0 125px;
+  @media (max-width: 600px){
+    flex: 0 150px;
+  }
+  @media (max-width: 500px){
+    /* flex: 1 0 150px;
+    img {
+      height: 200px;
+    } */
+    display: none;
+  }
 `;
 
-const ImagemPequena = styled.img``;
+const ImagemPequena = styled.img`
+  @media (max-width: 600px){
+    max-height: 250px;
+  }
+`;
 
 const Faixa3 = () => (
   <Faixa3Wrapper>

@@ -44,8 +44,12 @@ export const FormRowHorizontal2Campos = styled(FormRowHorizontal)`
   gap: 5px;
 `;
 export const FormRowHorizontalCidade = styled(FormRowHorizontal)`
-  grid-template-columns: 20% 80%;
-  gap: 5px;
+  grid-template-columns: 20% 80% !important;
+  gap: 5px !important;
+
+  @media (max-width: 1000px) {
+    display: grid;
+  }
 `;
 
 export const FormConteudo = styled.div`
@@ -154,6 +158,11 @@ export const FormFooter = styled.div`
   position: relative;
   width: 60%;
   margin: 0 -15px -20px;
+
+  @media(max-width: 1000px){
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 export const FormSeguranca = styled.div`
