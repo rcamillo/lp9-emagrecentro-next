@@ -177,7 +177,7 @@ export const FormSeguranca = styled.div`
   .textSeguranca {
     color: ${props => props.theme.client.colors.verdeClaro};
     padding-left: 1rem;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 300;
   }
 `;

@@ -74,6 +74,7 @@ const FormButtonContinue = styled(FormButton)`
   border-radius: 15px;
 
   &::after {
+    background-color: ${props => props.theme.client.colors.verdeClaro};
     border-radius: 15px;
   }
 `;
@@ -238,9 +239,9 @@ export default function FormularioContinue() {
           <FormFooterContinue>
             <FormButtonContinue
               type="submit"
-              backColor="azul"
+              backColor="verdeClaro"
               fontColor="branco"
-              backPulse="azul"
+              backPulse="verdeClaro"
             >
               CONCLUIR CADASTRO!
             </FormButtonContinue>

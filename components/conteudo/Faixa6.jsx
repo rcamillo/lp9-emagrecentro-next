@@ -5,7 +5,7 @@ import Container from "../ui/containers/Container";
 import { FaixaWrapperSimples } from "../ui/faixas/FaixaStyles";
 import ButtonPulse from "../ui/buttons/ButtonPulse";
 
-import { Title, TitleVerde } from "./Faixa1"
+import { Title, TitleVerde } from "./Faixa1";
 import { ButtonWrapper } from "./Faixa2";
 
 const ContentContainer = styled(Container)`
@@ -15,22 +15,22 @@ const ContentContainer = styled(Container)`
   flex-direction: column;
 `;
 
-const FaixaConteudo = styled.div`
+export const FaixaConteudo = styled.div`
   display: flex;
   padding: 0 2rem 0 5rem;
-  @media (max-width: 1000px){
+  @media (max-width: 1000px) {
     flex-direction: column;
   }
-  @media (max-width: 900px){
+  @media (max-width: 900px) {
     padding: 0;
   }
 `;
 
-const ContentTitles = styled.div`
+ const ContentTitles = styled.div`
   max-width: 45rem;
   padding-right: 3rem;
 
-  @media (max-width: 1000px){
+  @media (max-width: 1000px) {
     max-width: 100%;
   }
 `;
@@ -63,13 +63,14 @@ const ContentInfo = styled.div`
   @media (max-width: 798px) {
     &:last-child {
       border-left: none;
+    }
   }
   @media (max-width: 500px) {
-      border-bottom: 1px solid #4994d4;
-      border-left: none;
+    border-bottom: 1px solid #4994d4;
+    border-left: none;
     &:last-child {
       border-bottom: none;
-  }
+    }
   }
 `;
 
@@ -97,47 +98,46 @@ const TextInfos = styled(TextSimple)`
   margin: 0;
 `;
 
-const Faixa6 = ({callForm}) => (
+const Faixa6 = ({ callForm }) => (
   <FaixaWrapperSimples>
     <ContentContainer>
       <FaixaConteudo>
         <ContentTitles>
-          <TitleFaixa6>Faturamento dos nossos franqueados
-          <TitleStrongFaixa6>{" "}cresceu mais de 500%!</TitleStrongFaixa6>
+          <TitleFaixa6>
+            Faturamento dos nossos franqueados
+            <TitleStrongFaixa6> cresceu mais de 500%!</TitleStrongFaixa6>
           </TitleFaixa6>
-          <TextSimple>100% dos franqueados responderam que tiveram o retorno no prazo esperado. Isso porque o mercado de estética e emagrecimento cresceu 567% no Brasil nos últimos cinco anos.</TextSimple>
+          <TextSimple>
+            100% dos franqueados responderam que tiveram o retorno no prazo
+            esperado. Isso porque o mercado de estética e emagrecimento cresceu
+            567% no Brasil nos últimos cinco anos.
+          </TextSimple>
         </ContentTitles>
         <ContentInfos>
           <ContentInfo>
             <TitleInfos>2 bilhões de pessoas</TitleInfos>
-            <TextInfos>
-              Com obesidade e sobrepeso
-            </TextInfos>
+            <TextInfos>Com obesidade e sobrepeso</TextInfos>
           </ContentInfo>
           <ContentInfo>
             <TitleInfos>30% do salário</TitleInfos>
-            <TextInfos>
-              Brasileiras gastam com estética
-            </TextInfos>
+            <TextInfos>Brasileiras gastam com estética</TextInfos>
           </ContentInfo>
           <ContentInfo>
             <TitleInfos>50% de aumento</TitleInfos>
-            <TextInfos>
-              De procedimentos estéticos já em 2021
-            </TextInfos>
+            <TextInfos>De procedimentos estéticos já em 2021</TextInfos>
           </ContentInfo>
         </ContentInfos>
       </FaixaConteudo>
-        <ButtonWrapper>
-          <ButtonPulse
-            backColor="azul"
-            fontColor="branco"
-            backPulse="azul"
-            onClick={() => callForm()}
-          >
-            FATURE ALTO NA EMAGRECENTRO!
-          </ButtonPulse>
-        </ButtonWrapper>
+      <ButtonWrapper>
+        <ButtonPulse
+          backColor="azul"
+          fontColor="branco"
+          backPulse="azul"
+          onClick={() => callForm()}
+        >
+          FATURE ALTO NA EMAGRECENTRO!
+        </ButtonPulse>
+      </ButtonWrapper>
     </ContentContainer>
   </FaixaWrapperSimples>
 );

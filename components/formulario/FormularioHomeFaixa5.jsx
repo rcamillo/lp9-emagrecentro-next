@@ -224,7 +224,7 @@ export default function FormularioHomeFaixa5() {
                 <InputMasked
                   mask="tel/cel"
                   nome="celular"
-                  placeholder="Celular"
+                  placeholder="Celular com DDD"
                   handleInput={handleInput}
                   valor={lead.celular}
                   valido={controleForm.valido}
@@ -265,7 +265,7 @@ export default function FormularioHomeFaixa5() {
             </FormInputsMenor>
             <FormButton
               type="submit"
-              backColor="azul"
+              backColor="verdeClaro"
               fontColor="branco"
             >
             BAIXAR APRESENTAÇÃO!

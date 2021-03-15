@@ -209,7 +209,7 @@ export default function FormularioHomeTopo() {
                 <InputMasked
                   mask="tel/cel"
                   nome="celular"
-                  placeholder="Celular"
+                  placeholder="Celular com DDD"
                   handleInput={handleInput}
                   valor={lead.celular}
                   valido={controleForm.valido}
@@ -252,7 +252,7 @@ export default function FormularioHomeTopo() {
           <FormFooter>
               <FormButton
                 type="submit"
-                backColor="azul"
+                backColor="verdeClaro"
                 fontColor="branco"
               >
               BAIXAR APRESENTAÇÃO!

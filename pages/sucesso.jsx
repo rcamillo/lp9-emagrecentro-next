@@ -22,6 +22,15 @@ export const FaixaWrapperSucesso = styled(FaixaWrapper)`
 
 export const FaixaConteudo = styled(FaixaConteudoResponsive)`
   max-width: 100% !important;
+
+  padding: 10rem 0 2rem;
+
+  @media (max-width: 1110px) {
+    padding-top: 5rem;
+  }
+  @media (max-width: 900px) {
+    padding-top: 2rem;
+  }
 `;
 
 export const FaixaSucessoTexto = styled(Faixa1Texto)`
@@ -147,16 +156,13 @@ const Sucesso = () => (
         property="og:description"
         content="Seja franqueado(a) Emagrecentro, 1ª franquia de estética e emagrecimento do Brasil! Payback de 6 a 12 meses. Lucratividade de 20%.  Baixe a apresentação. "
       />
-      <meta
-        property="og:url"
-        content="https://franquiaemagrecimento.com.br/"
-      />
+      <meta property="og:url" content="https://franquiaemagrecimento.com.br/" />
     </Head>
     <FaixaWrapperSucesso>
       <Container>
         <FaixaConteudo>
           <FaixaSucessoTexto>
-            <LogoContent>
+            {/* <LogoContent>
               <picture>
                 <source
                   type="image/webp"
@@ -167,11 +173,11 @@ const Sucesso = () => (
                   alt="Emagrecentro"
                 />
               </picture>
-            </LogoContent>
+            </LogoContent> */}
             <TitleSucesso>Você está quase lá...</TitleSucesso>
             <TitleSimple>
               Antes de baixar a apresentação da <br />
-              Emagrecentro, finalize seu cadastro abaixo:
+              <strong>Emagrecentro</strong>, finalize seu cadastro abaixo:
             </TitleSimple>
             <FormWrapper>
               <FormularioContinue />

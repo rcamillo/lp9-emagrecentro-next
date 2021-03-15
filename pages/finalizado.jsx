@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import styled, { keyframes } from "styled-components";
 import Head from "next/head";
 
-import { FaixaWrapper } from "../components/ui/faixas/FaixaStyles";
+import { FaixaTextos } from "../components/ui/faixas/FaixaStyles";
 import Container from "../components/ui/containers/Container";
 
 import {
@@ -38,6 +38,26 @@ const FaixaConteudoIcones = styled(FaixaConteudo)`
   padding: 0;
 `;
 
+const FaixaTextoFinalizado = styled(FaixaTextos)`
+  width: 100%;
+  max-width: 65rem;
+  text-align: center;
+  align-items: center;
+
+  margin-top: 5rem;
+
+  @media (max-width: 900px) {
+    max-width: 100%;
+    font-size: 18px;
+  }
+  @media (max-width: 600px) {
+    font-size: 17px;
+  }
+  @media (max-width: 400px) {
+    font-size: 16px;
+  }
+`;
+
 const TitleSimple = styled.p`
   line-height: 1.4;
   font-size: 28px;
@@ -54,11 +74,14 @@ const Text = styled.p`
 const Faixa2Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
+
+  display: flex;
+  justify-content: center;
 `;
 
 const ButtonWrapperFinalizado = styled(ButtonWrapper)`
-  justify-content: flex-start;
+  justify-content: center;
 `;
 
 const pulse = keyframes`
@@ -123,6 +146,7 @@ const LinkDownload = styled(Link)`
 const CardWrapper = styled.div`
   display: flex;
   justify-content: center;
+  align-content: flex-start;
   flex-wrap: wrap;
   margin-bottom: 5rem;
 `;
@@ -144,17 +168,22 @@ const Card = styled.div`
   width: 260px;
   margin: 0 2.5rem 10rem;
   text-align: center;
+
+  position: relative;
   a {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 330px;
 
     box-shadow: ${props => props.theme.boxShadows.stronger};
     padding: 0 4rem 4rem;
     border-radius: 15px;
   }
 `;
+
+const CardImgWrapper = styled.div``;
 
 const CardImg = styled.img`
   width: 100%;
@@ -171,6 +200,16 @@ const CardText = styled.p`
   span {
     font-weight: bold;
   }
+`;
+
+const PortalLogoWrapper = styled.div`
+  position: absolute;
+  top: 280px;
+`;
+
+const PortalLogo = styled.img`
+  width: 150px;
+  height: auto;
 `;
 
 const RedesWrapper = styled.div`
@@ -212,29 +251,33 @@ const TextoWrapperFinalizado = styled(Faixa1Texto)`
   }
 `;
 
+const IconWhats = styled(Icon)`
+  margin-left: 2rem;
+`;
+
 const Finalizado = () => {
   const router = useRouter();
 
-  useEffect(() => {
-    async function buscaSession() {
-      const session = await JSON.parse(
-        localStorage.getItem("@emagrecentro/session-lead")
-      );
+  // useEffect(() => {
+  //   async function buscaSession() {
+  //     const session = await JSON.parse(
+  //       localStorage.getItem("@emagrecentro/session-lead")
+  //     );
 
-      if (!session) {
-        router.push("/");
-        return false;
-      }
+  //     if (!session) {
+  //       router.push("/");
+  //       return false;
+  //     }
 
-      if (!session.lead_sucesso) {
-        router.push("/sucesso");
-        return false;
-      }
+  //     if (!session.lead_sucesso) {
+  //       router.push("/sucesso");
+  //       return false;
+  //     }
 
-      localStorage.removeItem("@emagrecentro/session-lead");
-    }
-    buscaSession();
-  }, ["umavez"]);
+  //     localStorage.removeItem("@emagrecentro/session-lead");
+  //   }
+  //   buscaSession();
+  // }, ["umavez"]);
 
   return (
     <div>
@@ -298,7 +341,10 @@ const Finalizado = () => {
               <Text>
                 Aguarde a ligação de um de nossos consulstores, o DDD é 11!
               </Text>
-              <a href="https://leadsp9-public-resources.s3-sa-east-1.amazonaws.com/arquivos-apresentacao/Apresenta%C3%A7%C3%A3o+Emagrecentro.pdf" target="_blank">
+              <a
+                href="https://leadsp9-public-resources.s3-sa-east-1.amazonaws.com/arquivos-apresentacao/Apresenta%C3%A7%C3%A3o+Emagrecentro.pdf"
+                target="_blank"
+              >
                 <ButtonWrapperFinalizado>
                   <ButtonPulse
                     backColor="verdeClaro"
@@ -320,51 +366,94 @@ const Finalizado = () => {
         </ContentBackgroundLateral>
       </Faixa1Wrapper>
 
-      <FaixaConteudoFinalizado>
-        <ContentContainerFinalizado>
-          <FaixaConteudoResponsive>
-            <Faixa1Texto>
-              <Title>
-                Ou, se preferir, fale diretamente com um de nossos consultores
-                pelo WhatsApp agora mesmo
-              </Title>
-              <ButtonWrapperFinalizado>
-                <LinkDownload
-                  backColor="azul"
-                  fontColor="branco"
-                  backPulse="azul"
-                  href={
-                    "https://wa.me/551155852700/?text=" +
-                    encodeURI(
-                      "[Emagrecentro] Quero mais informações para ser um franqueado Emagrecentro"
-                    )
-                  }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ENVIAR MENSAGEM PARA O WHATSAPP +55 11 5585 2700
-                </LinkDownload>
-              </ButtonWrapperFinalizado>
-            </Faixa1Texto>
-          </FaixaConteudoResponsive>
-        </ContentContainerFinalizado>
-      </FaixaConteudoFinalizado>
+      <Faixa2Wrapper>
+        <FaixaTextoFinalizado>
+          <Title>
+            Ou, se preferir, fale diretamente com um de nossos consultores pelo
+            WhatsApp agora mesmo
+          </Title>
+          <ButtonWrapperFinalizado>
+            <LinkDownload
+              backColor="verdeClaro"
+              fontColor="branco"
+              backPulse="verdeClaro"
+              href={
+                "https://wa.me/551155852700/?text=" +
+                encodeURI(
+                  "[Emagrecentro] Quero mais informações para ser um franqueado Emagrecentro"
+                )
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ENVIAR MENSAGEM PARA O WHATSAPP +55 11 5585 2700
+              <IconWhats tamanho="3rem" tipo="svg" cor="#fff" icon="whatsapp" />
+            </LinkDownload>
+          </ButtonWrapperFinalizado>
+        </FaixaTextoFinalizado>
+      </Faixa2Wrapper>
 
       <FaixaConteudo>
         <TitleCard>Emagrecentro na imprensa!</TitleCard>
       </FaixaConteudo>
       <Faixa2Wrapper>
         <CardWrapper>
+        <Card>
+            <a
+              href="https://revistapegn.globo.com/Melhores-franquias/noticia/2020/10/os-vencedores-do-premio-melhores-franquias-do-brasil-2020.html"
+              target="_blank"
+            >
+              <CardImgWrapper>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/static/img/finalizado/imprensa3.webp"
+                  />
+                  <CardImg src="/static/img/finalizado/imprensa3.png" />
+                </picture>
+              </CardImgWrapper>
+              <CardText>
+                Emagrecentro é uma das franquias vencedoras do prêmio Melhores
+                Franquias do Brasil 2020!
+              </CardText>
+              <PortalLogoWrapper>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/static/img/finalizado/portal1.webp"
+                  />
+                  <PortalLogo src="/static/img/finalizado/portal1.png" />
+                </picture>
+              </PortalLogoWrapper>
+            </a>
+          </Card>
           <Card>
             <a
               href="http://www.agenciaoglobo.com.br/dinonews/Default.aspx?idnot=35967&tit=O+m%C3%A9dico+que+pediu+empr%C3%A9stimo+e+se+tornou+o+dono+de+uma+das+maiores+redes+de+franquias+de+emagrecimento+do+BrasilInfoMoneyhttps://www.facebook.com/InfoMoney/posts/1604608589574868"
               target="_blank"
             >
-              <CardImg src="/static/img/finalizado/imprensa1.png" />
+              <CardImgWrapper>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/static/img/finalizado/imprensa1.webp"
+                  />
+                  <CardImg src="/static/img/finalizado/imprensa1.png" />
+                </picture>
+              </CardImgWrapper>
               <CardText>
                 Como o Dr. Edson Ramuth se tornou dono de uma das maiores redes
                 de franquias de emagrecimento do Brasil!
               </CardText>
+              <PortalLogoWrapper>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/static/img/finalizado/portal2.webp"
+                  />
+                  <PortalLogo src="/static/img/finalizado/portal2.png" />
+                </picture>
+              </PortalLogoWrapper>
             </a>
           </Card>
           <Card>
@@ -372,25 +461,31 @@ const Finalizado = () => {
               href="https://revistapegn.globo.com/Franquias/noticia/2020/09/conheca-redes-chanceladas-com-o-certificado-de-franquia-internacional-2020.html"
               target="_blank"
             >
-              <CardImg src="/static/img/finalizado/imprensa2.png" />
+              <CardImgWrapper>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/static/img/finalizado/imprensa2.webp"
+                  />
+                  <CardImg src="/static/img/finalizado/imprensa2.png" />
+                </picture>
+              </CardImgWrapper>
               <CardText>
                 Emagrecentro é uma das redes chanceladas com o Certificado de
                 Franquia Internacional 2020!
               </CardText>
+              <PortalLogoWrapper>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcSet="/static/img/finalizado/portal1.webp"
+                  />
+                  <PortalLogo src="/static/img/finalizado/portal1.png" />
+                </picture>
+              </PortalLogoWrapper>
             </a>
           </Card>
-          <Card>
-            <a
-              href="https://revistapegn.globo.com/Melhores-franquias/noticia/2020/10/os-vencedores-do-premio-melhores-franquias-do-brasil-2020.html"
-              target="_blank"
-            >
-              <CardImg src="/static/img/finalizado/imprensa3.png" />
-              <CardText>
-                Emagrecentro é uma das franquias vencedoras do prêmio Melhores
-                Franquias do Brasil 2020!
-              </CardText>
-            </a>
-          </Card>
+
         </CardWrapper>
       </Faixa2Wrapper>
 

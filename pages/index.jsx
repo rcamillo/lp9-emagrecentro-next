@@ -158,7 +158,7 @@ const Home = () => {
         <meta property="og:url" content="https://franquiaemagrecimento.com.br/" />
       </Head>
       <PaginaInterna>
-        <Faixa1 />
+        <Faixa1 callForm={callForm} />
         <Element name="form">
           <FormWrapperHorizontal>
             <ContentPersonagemForm>

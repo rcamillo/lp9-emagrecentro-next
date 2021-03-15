@@ -123,7 +123,7 @@ export const TitleVerde = styled.span`
   font-weight: 800;
   padding-bottom: 3rem;
   font-size: 28px;
-      margin-top: -0.5rem;
+  margin-top: -0.5rem;
   color: ${props => props.theme.client.colors.verdeClaro};
 
   @media (max-width: 900px) {
@@ -138,9 +138,34 @@ export const TitleVerde = styled.span`
   }
 `;
 
+const TitleVerdeFaixa1 = styled.span`
+  font-weight: 800;
+  padding-bottom: 3rem;
+  font-size: 21px;
+  margin-top: -0.5rem;
+  color: ${props => props.theme.client.colors.verdeClaro};
+
+  @media (max-width: 1110px) {
+    font-size: 17px;
+  }
+  @media (max-width: 900px) {
+    font-size: 23px;
+  }
+  @media (max-width: 500px) {
+    font-size: 18px;
+  }
+  @media (max-width: 400px) {
+    font-size: 18px;
+  }
+`;
+
 export const TitleSimple = styled.p`
   color: ${props => props.theme.client.colors.branco};
   font-size: 17px;
+`;
+
+const TitleLink = styled.span`
+  text-decoration: underline;
 `;
 
 export const IconWrapper = styled.div`
@@ -156,7 +181,7 @@ export const IconZap = styled(Icon)`
   }
 `;
 
-const Faixa1 = () => {
+const Faixa1 = ({ callForm }) => {
   return (
     <Faixa1Wrapper>
       <ContentContainer>
@@ -174,17 +199,25 @@ const Faixa1 = () => {
             <Title>
               Invista a partir de R$ 100 mil na sua franquia de emagrecimento
             </Title>
-            <TitleVerde>
-                e fature, em média, R$ 1 milhão por ano!
-            </TitleVerde>
+            <TitleVerdeFaixa1>
+              e fature, em média, R$ 1 milhão por ano!
+            </TitleVerdeFaixa1>
             <TitleSimple>
-              Seja franqueado (a) Emagrecentro, a maior franquia de emagrecimento e estética das Américas, que cresceu 20% em 2020! Baixe a apresentação e saiba como.
+              Seja franqueado (a) Emagrecentro,{" "}
+              <strong>
+                a maior franquia de emagrecimento e estética das Américas
+              </strong>
+              , que cresceu 20% em 2020!{" "}
+              <TitleLink>Baixe a apresentação</TitleLink>
             </TitleSimple>
           </Faixa1Texto>
         </FaixaConteudoResponsive>
       </ContentContainer>
       <ContentBackgroundLateral>
-        <BackgroundLateral src="/static/img/faixa1/background-lateral.png" alt="Emagrecentro" />
+        <BackgroundLateral
+          src="/static/img/faixa1/background-lateral.png"
+          alt="Emagrecentro"
+        />
       </ContentBackgroundLateral>
     </Faixa1Wrapper>
   );

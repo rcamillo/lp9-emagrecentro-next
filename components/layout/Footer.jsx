@@ -110,7 +110,7 @@ const FooterP9 = styled.div`
   }
 `;
 
-const Footer = () => (
+const Footer = ({callForm}) => (
   <FooterWrapperSimples>
     <ContentContainer>
       <FooterContent>
