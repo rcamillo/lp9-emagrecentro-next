@@ -58,6 +58,7 @@ width: 100px;
 `;
 const TextIcon = styled.div`
   font-size: 16px;
+  text-align: center;
 `;
 
 const Faixa4 = ({ callForm }) => (
