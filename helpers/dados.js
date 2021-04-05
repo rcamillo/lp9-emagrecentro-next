@@ -61,7 +61,7 @@ export const Icones = [
     id: 5,
     icon: "icon5",
     text:
-      "Todos os procedimentos são realizados por Esteticistas, Biomédicos e por Fisioterapeutas."
+      "tdimentos são realizados por Esteticistas, Biomédicos e por Fisioterapeutas."
   },
   {
     id: 6,

@@ -39,7 +39,7 @@ const TextSimpleFaixa2 = styled(TitleSimple)`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #aaaaaa;
+  color: ${props => props.theme.client.colors.cinza};
   text-align: center;
   height: 8rem;
   font-size: 15px;

@@ -29,7 +29,7 @@ const theme = {
       verdeEscuro: "#0d8784",
       laranja: "#f28d44",
       branco: "#fff",
-      cinza: "#aaaaaa",
+      cinza: "#787878",
       turquesa: "#3a8d93"
     }
   }

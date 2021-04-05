@@ -76,7 +76,6 @@ export const FormHeaderHorizontal = styled.div`
   }
 
   span {
-    color: #aaaaaa;
     font-size: 1.5rem;
     text-transform: initial;
     font-weight: 300;
