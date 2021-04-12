@@ -115,8 +115,23 @@ const Home = () => {
       }
       localStorage.removeItem("@emagrecentro/session-lead");
     }
-
     buscaSession();
+
+    var st598=function(){
+      var a=598;
+      var b='14f0b8cdb1a6846b48fbfb5fc8a88717';
+      var c=function(){
+        var d=document.getElementsByTagName('head')[0];
+        var e=document.createElement('script');
+        e.type='text/javascript';
+        e.src='https://app.salepower.com.br/integration/script-form.php?id='+a+'&hash='+b;
+        e.async=!0;
+        d.appendChild(e);
+      };
+      return{load:c}
+    };
+    var s=st598();
+    s.load();
   }, ["umavez"]);
 
   useEffect(() => {
