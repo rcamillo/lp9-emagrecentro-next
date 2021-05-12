@@ -61,7 +61,7 @@ export const Icones = [
     id: 5,
     icon: "icon5",
     text:
-      "metodologia exclusiva patenteada no Brasil e EUA, e apoio ao franqueado por meio da Telemedicina."
+      "Metodologia exclusiva patenteada no Brasil e EUA, e apoio ao franqueado por meio da Telemedicina."
   },
   {
     id: 2,
