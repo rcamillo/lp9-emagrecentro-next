@@ -8,6 +8,7 @@ import Status from "./Status";
 import Loader from "./Loader";
 import TextArea from "./TextArea";
 import Input from "./Input";
+import Select from "./Select";
 
 import {
   Form,
@@ -26,6 +27,7 @@ import {
 } from "../../helpers/formulario";
 
 import { LogoContent, Logo } from "../conteudo/Faixa1";
+import { tempo } from "../../helpers/dados";
 
 const FormContinue = styled(Form)`
   width: 400px;
@@ -227,13 +229,14 @@ export default function FormularioContinue() {
               valido={controleForm.valido}
               className="select-input--cinza"
             />
-            <TextArea
+            <Select
               nome="pretende"
-              placeholder="Pretende iniciar sua franquia imediatamente, em até 6 meses ou mais de 1 ano?"
+              placeholder="Em quanto tempo pretende abrir sua franquia?"
               handleInput={handleInput}
               valor={lead.pretende}
+              valores={tempo}
               valido={controleForm.valido}
-              className="text-area text-area--cinza"
+              className="select-input--cinza"
             />
           </ContinueInputsMenor>
           <FormFooterContinue>

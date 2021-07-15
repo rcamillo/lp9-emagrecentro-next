@@ -35,6 +35,13 @@ export const capitais = [
   "Tenho até R$ 50 mil para investir"
 ];
 
+export const tempo = [
+  "Imediatamente",
+  "Em até 6 meses",
+  "Em até 1 ano",
+  "Mais de 1 ano"
+];
+
 //Faixa4
 export const Icones = [
   {

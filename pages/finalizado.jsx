@@ -378,15 +378,15 @@ const Finalizado = () => {
               fontColor="branco"
               backPulse="verdeClaro"
               href={
-                "https://wa.me/551155852700/?text=" +
+                "https://wa.me/5511992658341/?text=" +
                 encodeURI(
-                  "[Emagrecentro] Quero mais informações para ser um franqueado Emagrecentro"
+                  "[Emagrecentro] Gostaria de mais informações para ser um franqueado Emagrecentro"
                 )
               }
               target="_blank"
               rel="noopener noreferrer"
             >
-              ENVIAR MENSAGEM PARA O WHATSAPP +55 11 5585 2700
+              ENVIAR MENSAGEM PARA O WHATSAPP +55 11 99265 8341
               <IconWhats tamanho="3rem" tipo="svg" cor="#fff" icon="whatsapp" />
             </LinkDownload>
           </ButtonWrapperFinalizado>
