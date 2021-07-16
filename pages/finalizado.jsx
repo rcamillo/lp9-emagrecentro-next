@@ -378,7 +378,7 @@ const Finalizado = () => {
               fontColor="branco"
               backPulse="verdeClaro"
               href={
-                "https://wa.me/5511992658341/?text=" +
+                "https://wa.me/5511995601157/?text=" +
                 encodeURI(
                   "[Emagrecentro] Gostaria de mais informações para ser um franqueado Emagrecentro"
                 )
@@ -386,7 +386,7 @@ const Finalizado = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              ENVIAR MENSAGEM PARA O WHATSAPP +55 11 99265 8341
+              ENVIAR MENSAGEM PARA O WHATSAPP +55 11 99560 1157
               <IconWhats tamanho="3rem" tipo="svg" cor="#fff" icon="whatsapp" />
             </LinkDownload>
           </ButtonWrapperFinalizado>
